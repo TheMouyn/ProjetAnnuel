@@ -17,14 +17,14 @@ CREATE TABLE bcp__user(
     nom_user VARCHAR(50) NOT NULL,
     prenom_user VARCHAR(50) NOT NULL,
     ddn_user DATE NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email_user VARCHAR(255) NOT NULL,
     password_user TEXT NOT NULL,
     lienInternePhoto_user TEXT NULL,
-    estProfessionnel BOOLEAN NOT NULL,
-    nom_typeEtude VARCHAR(255),
+    estProfessionnel_user BOOLEAN NOT NULL,
+    nom_typeEtude VARCHAR(255) NULL,
     lienInterneJustificatif_user TEXT NULL,
     justificatifValide_user BOOLEAN NULL,
-    emailValide BOOLEAN NOT NULL
+    emailValide_user BOOLEAN NOT NULL
 );
 
 CREATE TABLE bcp__article(
@@ -45,7 +45,7 @@ CREATE TABLE bcp__favoris(
 CREATE TABLE bcp__aSavoir(
     id_bacterie INTEGER NOT NULL,
     id_user INTEGER NOT NULL,
-    Connu BOOLEAN NOT NULL -- True si bacterie connue, false si non
+    Connu_aSavoir BOOLEAN NOT NULL -- True si bacterie connue, false si non
 );
 
 CREATE TABLE bcp__forme(
@@ -61,7 +61,7 @@ CREATE TABLE bcp__bacterie(
     LienInterneImage_bacterie TEXT NULL,
     visible_bacterie BOOLEAN NOT NULL,
     nbConsultation_bacterie INTEGER NOT NULL DEFAULT 0,
-    nbModification INTEGER NOT NULL DEFAULT 0,
+    nbModification_bacterie INTEGER NOT NULL DEFAULT 0,
     nbRecherche_bacterie INTEGER NOT NULL DEFAULT 0,
     temperatureOptimale_bacterie INTEGER NULL,
     prophylaxie_bacterie LONGTEXT NULL,
@@ -116,6 +116,8 @@ CREATE TABLE bcp__milieu(
 	synthetique_milieu BOOLEAN NULL,
 	semiSynthetique_milieu BOOLEAN NULL,
 	ordinaire_milieu BOOLEAN NULL,
+	enrichi_milieu BOOLEAN NULL,
+	oriantation_milieu BOOLEAN NULL,
 	isolement_milieu BOOLEAN NULL,
 	identification_milieu BOOLEAN NULL,
 	enrichissement_milieu BOOLEAN NULL,
@@ -123,7 +125,7 @@ CREATE TABLE bcp__milieu(
 	composition_milieu TEXT NULL,
 	utilisation_milieu TEXT NULL,
 	lecture_milieu TEXT NULL,
-	lectureResultat LONGTEXT NULL, -- au format d'un tableau extrait code html
+	lectureResultat_milieu LONGTEXT NULL, -- au format d'un tableau extrait code html
 	cout_milieu INTEGER NULL,
 	etat_milieu VARCHAR(255) NULL,
 	LienInterneImage_milieu TEXT NULL
