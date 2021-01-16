@@ -1,0 +1,176 @@
+/*Permet de calcule la largeur des boites avec le margin et padding*/
+* {
+    box-sizing: border-box;
+    font-family: "Arial";
+}
+
+/*On retire les paramètres par défauts du link*/
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.header {
+    width: 100%;
+    /*background-color: lightgreen;*/
+    text-align: center;
+}
+
+.footer {
+    width: 100%;
+    /*background-color: hotpink;*/
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    /*background-color: lightcoral;*/
+    width: 21%;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.menu a {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-items: center;
+    padding: 5px 30px;
+    margin: 10px;
+}
+
+.menu a .textelien {
+    padding-left: 20px;
+}
+
+.menu a img {
+    width: 20%;
+}
+
+
+.photoProfil {
+    padding: 0px 60px;
+}
+
+.contenu {
+    /*background-color: lightblue;*/
+    width: 79%;
+}
+
+
+.button {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding: 10px;
+}
+
+
+a.button.one:before, a.button.one:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease;
+}
+
+a.button.one:before {
+    top: -2.5%;
+    left: -1%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+a.button.one:after {
+    bottom: -2.5%;
+    right: -1%;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+a.button.one:hover:before, a.button.one:hover:after {
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    border-color: black;
+}
+
+.titreform {
+    width: 100%;
+    display: flex;
+    align-content: center;
+}
+
+.titreindividuel {
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: grey;
+
+}
+
+
+.sousmenu.active {
+    border-bottom: black solid;
+    color: black;
+}
+
+
+.titreform .sousmenu {
+    position: relative;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.titreform .sousmenu:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: grey;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.titreform .sousmenu:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+
+.titreform .active:hover:before {
+    visibility: hidden;
+}
+
+.formulaire {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+/*menu drop down avec checkbox*/
+
+.form-groupe-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin: 10px;
+}
+
+.form-item {
+    display: block;
+    width: 80%;
+    height: 24px;
+    margin: 5px;
+}
