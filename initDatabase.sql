@@ -3,7 +3,7 @@
 -- désactivation de la vérification des clées étrangères pour suppression des tables
 SET foreign_key_checks = 0;
 
-DROP TABLE IF EXISTS bcp__typeEtude, bcp__user, bcp__article, bcp__favoris, bcp__aSavoir, bcp__forme, bcp__bacterie, bcp__atteint, bcp__zoneCorps, bcp__provoqueMaladie, bcp__maladie, bcp__provoqueSymptome, bcp__symptome, bcp__resistance, bcp__antibiotique, bcp__bacterieMilieu, bcp__milieu, bcp__estMensione, bcp__ficheTechnique, bcp__applique, bcp__techniqueEncemensement;
+DROP TABLE IF EXISTS bcp__typeEtude, bcp__user, bcp__article, bcp__favoris, bcp__aSavoir, bcp__forme, bcp__bacterie, bcp__atteint, bcp__zoneCorps, bcp__provoqueMaladie, bcp__maladie, bcp__provoqueSymptome, bcp__symptome, bcp__resistance, bcp__antibiotique, bcp__pousse, bcp__milieu, bcp__estMensione, bcp__ficheTechnique, bcp__applique, bcp__techniqueEncemensement;
 
 SET foreign_key_checks = 1;
 
@@ -104,7 +104,7 @@ CREATE TABLE bcp__antibiotique(
 	nom_antibiotique VARCHAR(255) NOT NULL PRIMARY KEY
 );
 
-CREATE TABLE bcp__bacterieMilieu(
+CREATE TABLE bcp__pousse(
 	id_bacterie INTEGER NOT NULL,
 	id_milieu INTEGER NOT NULL
 );
@@ -177,8 +177,8 @@ ALTER TABLE bcp__provoqueSymptome ADD FOREIGN KEY (nom_symptome) REFERENCES bcp_
 ALTER TABLE bcp__resistance ADD FOREIGN KEY (id_bacterie) REFERENCES bcp__bacterie(id_bacterie);
 ALTER TABLE bcp__resistance ADD FOREIGN KEY (nom_antibiotique) REFERENCES bcp__antibiotique(nom_antibiotique);
 
-ALTER TABLE bcp__bacterieMilieu ADD FOREIGN KEY (id_bacterie) REFERENCES bcp__bacterie(id_bacterie);
-ALTER TABLE bcp__bacterieMilieu ADD FOREIGN KEY (id_milieu) REFERENCES bcp__milieu(id_milieu);
+ALTER TABLE bcp__pousse ADD FOREIGN KEY (id_bacterie) REFERENCES bcp__bacterie(id_bacterie);
+ALTER TABLE bcp__pousse ADD FOREIGN KEY (id_milieu) REFERENCES bcp__milieu(id_milieu);
 
 ALTER TABLE bcp__applique ADD FOREIGN KEY (id_milieu) REFERENCES bcp__milieu(id_milieu);
 ALTER TABLE bcp__applique ADD FOREIGN KEY (nom_techniqueEncemensement) REFERENCES bcp__techniqueEncemensement(nom_techniqueEncemensement);
