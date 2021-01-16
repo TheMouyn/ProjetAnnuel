@@ -41,9 +41,9 @@ INSERT INTO bcp__user VALUES
 
 -- Ajout des bactéries
 INSERT INTO bcp__bacterie VALUES
-    (NULL, 'Escherichia', 'coli', NULL, 'Positif', 'upload/photoBacterie/escherichia_coli.jpg', 1, 0, 0, 0, 37, NULL, 'Bacille'),
-    (NULL, 'Yersinia', 'pestis', NULL, 'Negatif', 'upload/photoBacterie/yersinia_pestis.png', 1, 0, 0, 0, NULL, NULL, 'Bacille'),
-    (NULL, 'Lactobacillus', 'rhamnosus', NULL, 'Positif', 'upload/photoBacterie/Lactobacillus_rhamnosus.png', 1, 0, 0, 0, 37, NULL, 'Bacille');
+    (NULL, 'Escherichia', 'coli', NULL, 'Positif', 'upload/photoBacterie/escherichia_coli.jpg', 1, 0, 0, 0, '2021-01-14 20:25:00', 37, NULL, 'Bacille'),
+    (NULL, 'Yersinia', 'pestis', NULL, 'Negatif', 'upload/photoBacterie/yersinia_pestis.png', 1, 0, 0, 0, '2021-01-14 20:25:00', NULL, NULL, 'Bacille'),
+    (NULL, 'Lactobacillus', 'rhamnosus', NULL, 'Positif', 'upload/photoBacterie/Lactobacillus_rhamnosus.png', 1, 0, 0, 0, '2021-01-14 20:25:00',37, NULL, 'Bacille');
 
 
 
