@@ -63,6 +63,7 @@ CREATE TABLE bcp__bacterie(
     nbConsultation_bacterie INTEGER NOT NULL DEFAULT 0,
     nbModification_bacterie INTEGER NOT NULL DEFAULT 0,
     nbRecherche_bacterie INTEGER NOT NULL DEFAULT 0,
+    dateModif_bacterie DATETIME NOT NULL,
     temperatureOptimale_bacterie INTEGER NULL,
     prophylaxie_bacterie LONGTEXT NULL,
     nom_forme VARCHAR(255) NOT NULL
@@ -111,7 +112,7 @@ CREATE TABLE bcp__pousse(
 
 CREATE TABLE bcp__milieu(
 	id_milieu INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	nature_milieu VARCHAR(255) NOT NULL, -- nom du milieux ex : BCP
+	nature_milieu VARCHAR(255) NOT NULL,
 	empirique_milieu BOOLEAN NULL,
 	synthetique_milieu BOOLEAN NULL,
 	semiSynthetique_milieu BOOLEAN NULL,
@@ -125,7 +126,7 @@ CREATE TABLE bcp__milieu(
 	composition_milieu TEXT NULL,
 	utilisation_milieu TEXT NULL,
 	lecture_milieu TEXT NULL,
-	lectureResultat_milieu LONGTEXT NULL, -- au format d'un tableau extrait code html
+	lectureResultat_milieu LONGTEXT NULL,
 	cout_milieu INTEGER NULL,
 	etat_milieu VARCHAR(255) NULL,
 	LienInterneImage_milieu TEXT NULL
