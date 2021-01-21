@@ -27,7 +27,7 @@
     <a href="#" class="button one">
         <img src="../style/img/setting.svg" alt="">
         <div class="textelien">Paramètres</div>
-    </a><a href="#" class="button one">
+    </a><a href="../page/login.php" class="button one">
         <img src="../style/img/login.svg" alt="">
         <div class="textelien">Connexion</div>
     </a>
