@@ -62,6 +62,7 @@ a {
 .contenu {
     /*background-color: lightblue;*/
     width: 79%;
+    text-align: justify;
 }
 
 
@@ -173,4 +174,11 @@ a.button.one:hover:before, a.button.one:hover:after {
     width: 80%;
     height: 24px;
     margin: 5px;
+}
+
+
+.imgBacIndiv{
+    height: 200px;
+    float: right;
+    margin: 20px;
 }
