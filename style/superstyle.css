@@ -6,7 +6,7 @@
 
 /*On retire les paramètres par défauts du link*/
 a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: black;
 }
 

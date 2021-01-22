@@ -15,7 +15,7 @@ require_once '../elements/nav.php';
                 <input class="login-item" type="email" placeholder="Adresse email">
                 <input class="login-item" type="password" placeholder="Mot de passe">
                 <button class="login-item" type="submit">Se connecter</button>
-
+                <p style="width: 100%; text-align: center; text-decoration: blue"><a href="signin.php">Se créer un compte</a></p>
             </form>
         </div>
 
