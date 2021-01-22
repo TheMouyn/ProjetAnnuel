@@ -12,13 +12,11 @@ require_once '../elements/nav.php';
         <!--TODO: Faire le script d'ouverture de session avec stockage des données dans session-->
         <div style="display:flex;justify-content: center; margin: 50px;">
             <form action="POST" method="script-login.php">
-                <label for="mail">Votre mail : </label>
-                <input style="height: 24px; margin: 5px 0px;" type="email" id="mail" placeholder="exemple@gmail.com">
+                <input class="login-item" type="email" placeholder="Adresse email">
                 <br>
-                <label for="mdp">Votre mot de passe : </label>
-                <input style="height: 24px; margin: 5px 0px;" type="password" id="mdp" placeholder="mot de passe">
+                <input class="login-item" type="password" placeholder="Mot de passe">
                 <br>
-                <button style="width: 350px; justify-items: center;" type="submit">Se connecter</button>
+                <button class="login-item" type="submit">Se connecter</button>
 
             </form>
         </div>

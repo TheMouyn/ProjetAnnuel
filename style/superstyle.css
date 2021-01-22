@@ -174,3 +174,9 @@ a.button.one:hover:before, a.button.one:hover:after {
     height: 24px;
     margin: 5px;
 }
+
+.login-item {
+    width: 350px;
+    height: 24px;
+    margin: 7px 0px;
+}
