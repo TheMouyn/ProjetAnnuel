@@ -20,7 +20,7 @@ require_once '../elements/nav.php';
 
 ?>
 <div class="contenu">
-    <img class="imgBacIndiv" src="../upload/photoBacterie/escherichia_coli.jpg" alt="Photo microscope escherichia coli">
+    <img class="imgBacIndiv" src="../upload/photoBacterie/photoBacterie1.jpg" alt="Photo microscope escherichia coli">
 
     <p>Nom genre : <?= $bacterie['genre'] ?></p>
     <p>Nom espèce : <?= $bacterie['espece'] ?></p>
