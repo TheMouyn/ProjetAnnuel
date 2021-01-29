@@ -7,7 +7,7 @@ require_once '../elements/nav.php';
 ?>
 <div class="contenu">
     <div style="display:flex; justify-content: space-around">
-        <img src="../style/img/favicon.svg" alt="">
+        <img src="../style/img/favicon.svg" alt="" style="width: 25%;">
 
         <!--TODO: Faire le script d'ouverture de session avec stockage des données dans session-->
         <div style="display:flex;justify-content: center; margin: 50px 0px; width: 350px;">
@@ -19,7 +19,7 @@ require_once '../elements/nav.php';
             </form>
         </div>
 
-        <img src="../style/img/favicon.svg" alt="" style=" -webkit-transform: scaleX(-1); transform: scaleX(-1);">
+        <img src="../style/img/favicon.svg" alt="" style=" -webkit-transform: scaleX(-1); transform: scaleX(-1); width: 25%;">
     </div>
 
 
