@@ -4,7 +4,7 @@ $titrePage = "Faire une recherche";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 
-require_once '../function.php';
+require_once '../function/function.php';
 
 
 ?>
