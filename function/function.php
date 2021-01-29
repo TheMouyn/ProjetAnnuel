@@ -1,5 +1,5 @@
 <?php
-require_once 'function/connect.php';
+require_once 'connect.php';
 
 function formesBacterie():array {
    $bdd=connect();
