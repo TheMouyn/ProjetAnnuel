@@ -1,51 +1,336 @@
 -- le but est de remplir la base de donnée avec des données de test
 
 -- Ajout des différentes formes
-INSERT INTO bcp__forme VALUES ('Coque'), ('Diplocoque'), ('Staphylocoque'), ('Streptocoque'), ('Sarcina'), ('Tétrade'), ('Coque en amas');
-INSERT INTO bcp__forme VALUES ('Coccobacille'), ('Bacille'), ('Diplobacille'), ('Palissade'), ('Streptobacille'), ('Bacille fusiforme');
-INSERT INTO bcp__forme VALUES ('Vibrions'), ('Spirille'), ('Borrelia'), ('Treponeme'), ('Leptospire');
+INSERT INTO bcp__forme VALUES
+    ('Bacille'),
+    ('Bacille fusiforme'),
+    ('Borrelia'),
+    ('Coccobacille'),
+    ('Coque'),
+    ('Coque en amas'),
+    ('Diplobacille'),
+    ('Diplocoque'),
+    ('Leptospire'),
+    ('Palissade'),
+    ('Sarcina'),
+    ('Spirille'),
+    ('Staphylocoque'),
+    ('Streptobacille'),
+    ('Streptocoque'),
+    ('Tétrade'),
+    ('Treponeme'),
+    ('Vibrions'),
+    ('Helicoïdale');
 
--- Ajout des différents milieux (sans les photos)
+-- Ajout des différents milieux
 INSERT INTO bcp__milieu VALUES
-    (NULL, 'BCP', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 'Peptone, Extrait de viande, lactose, agar, pourpre de bromocrésol', 'Ce milieu est couramment utilisé au cours de l\'examen bactériologique des urines et des selles. Après ensemencement, le milieu est incubé à 37°C pendant 18 à 24 heures avant d\'être examiné. Ce délai ne doit pas être dépassé sous peine d\'entraîner des erreurs d\'interprétation.', 'La fermentation du lactose se manifeste par une production d\'acide qui entraîne le virage de l\'inducateur au jaune. Les colonies bleues proviennent de bactéries lactose -.', NULL, NULL, 'Solide', NULL),
-    (NULL, 'CASO', 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 'Tryptone, hydrolysat de caséine, peptone papaïnique de soja, chlorure de sodium, agar agar', NULL, NULL, NULL, 2, 'Solide', NULL),
-    (NULL, 'Chapman', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 'Peptone, extrait de viande de bœuf, chlorure de sodium, manitol, rouge de phénol, agar agar', 'Le milieu de Chapman est utilisé pour l\'isolement des staphylocoques. Le pouvoir inhibiteur du chlorure de sodium permet d\'ensemencer abondamment les boites de Pétri. La lecture des résultats est effectuée après 24 à 48h d\'incubation à 37°C.', 'Les souche de S. aureus forment', NULL, 13, 'Solide', NULL);
+    (NULL, 'BCP', 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 'Peptone, Extrait de viande, lactose, agar, pourpre de bromocrésol', 'Ce milieu est couramment utilisé au cours de l\'examen bactériologique des urines et des selles. Après ensemencement, le milieu est incubé à 37°C pendant 18 à 24 heures avant d\'être examiné. Ce délai ne doit pas être dépassé sous peine d\'entraîner des erreurs d\'interprétation.', 'La fermentation du lactose se manifeste par une production d\'acide qui entraîne le virage de l\'inducateur au jaune. Les colonies bleues proviennent de bactéries lactose -.', NULL, NULL, 'Solide', 'upload/photoMilieu/photoMilieu1.png'),
+    (NULL, 'CASO', 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 'Tryptone, hydrolysat de caséine, peptone papaïnique de soja, chlorure de sodium, agar agar', NULL, NULL, NULL, 2, 'Solide', 'upload/photoMilieu/photoMilieu2.jpg'),
+    (NULL, 'Chapman', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 'Peptone, extrait de viande de bœuf, chlorure de sodium, manitol, rouge de phénol, agar agar', 'Le milieu de Chapman est utilisé pour l\'isolement des staphylocoques. Le pouvoir inhibiteur du chlorure de sodium permet d\'ensemencer abondamment les boites de Pétri. La lecture des résultats est effectuée après 24 à 48h d\'incubation à 37°C.', 'Les souche de S. aureus forment ', NULL, 13, 'Solide', 'upload/photoMilieu/photoMilieu3.png'),
+    (NULL, 'PCA Standard', 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 'Tryptone, Extrait de levure, glucose, agar, pH, Eau', 'La gélose PCA Standart est un milieu utilisé pour le dénombrement des microorganismes aérobies. C\'ets un milieu nutritif sans inhibiteur qui a pour intérêt de favoriser le développement à 30°C de tous les microorganismes. ', 'Après une incubation on observe des colonies bactériennes et parfois des levures et des moisissures.', NULL, 4, 'Solide', 'upload/photoMilieu/photoMilieu4.jpg'),
+    (NULL, 'COS', 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 'bio-Polyptone, Hydrolysat de protéines animales et végétales, bio-Myotone, amidon de maïs, chlorure de sodium, gélose', 'Milieu d\'isolement enrichi sur lequel les streptocoques se dévoloppent bien. Ce milieu permet également de déterminer le carctère hémolytique de la bactérie. Il est possible d\'ajouter des disque d\'antibiotiques pour identifier Streptococcus pneumoniae et Streptococcus pyogenes.', 'La dégradation des hématies crée ou non un halo autour des colonies ce qui permet de déterminer le caractère hémolytique.', NULL, 18, 'Solide', 'upload/photoMilieu/photoMilieu5.png'),
+    (NULL, 'Chocolat non supplémenté', 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 'peptone trypsine de caséine, peptone pepsique de viande, amidon de maïs, hydrogénophosphate de postassium, dihydrogénophosphate de potassium, chlorure de sodium, agar', 'Milieu qui permet de déterminer la présence d\'un Haemophilus. ', NULL, NULL, 35, 'Solide ', 'upload/photoMilieu/photoMilieu6.jpg'),
+    (NULL, 'Drigalski', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 'Tryptone, Extrait de viande, Extrait autolytique de levure, Désoxycholate de sodium, Thiosulfate de sodium, Lactose, Cristal violet, bleu de bromothymol (BBT), Agar agar bactériologique', 'Cette gélose lactosé permet l\'isolement sélectif des bacilles à Gram négatif. Les bactéries sont différencier selon leur aptitude à fermenter le lactose. Cette gélose est souvent utilisée dans les secteurs alimentaire, pharmaceutique, médical, cosmétique et vétérinaire.', 'Les bacilles lactose-positif présentent des colonies de couleur jaune. Les bacilles lactose-négatif donnent des colonies de couleur bleue à bleu vert.', NULL, 32, 'solide', 'upload/photoMilieu/photoMilieu7.png'),
+    (NULL, 'SS', 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 'Peptone, extrait de viande, lactose, citrate de sodium, citrate de fer III, sels biliaires, vert brillant, rouge neutre, thiosulfate de sodium, agar', 'La gélose Salmonella-Shigella (SS) est sélective des Gram négatif par l\'ajout de sels biliaires. ', 'La coloration des colonies et la présence ou non d\'un centre noir permet de savoir si la bactérie est lactose négative ou positive et la production ou non de sulfure d\'hydrogène', NULL, 12, 'solide', 'upload/photoMilieu/photoMilieu8.jpg'),
+    (NULL, 'BP', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 'bio-Trypcase, extrait de viande de boeuf, extrait de levure, chlorure de lithium, gélose, glycocolle, pyruvate de sodium', 'Le milieu Baird Parker comporte une base nutritive riche qui permet d\'identifier les colonies de Staphylococcus aureus en leur donnant un aspect caratéristique après 24 heures de culture. La majorité des autre espèces du genre Staphylococcus sont inhibées ou ne produisent pas de colonies caractéristique en 24 heures. Ce milieu permet de également l\'étude de la réduction de la tellurite, de la protéolyse des protéines de jaune d\'oeuf et l\'hydrolyse des lécithines du jaune d\'oeuf. ', 'Après 24h l\'apparition de colonies noires avec un halo blanc opaque et une zone claire permet d\'affirmer la présence de Staphylococcus aureus.', NULL, 22, 'solide', 'upload/photoMilieu/photoMilieu9.png'),
+    (NULL, 'EMB', 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 'peptone, lactose, éosine, bleu de méthylène, hydrogénophosphate de potassium, agar', 'Le milieu EMB (Eosine bleu de méthylène) est un milieu de culture qui permet d\'isoler les bacilles Gram-négatifs.', 'La forme, la couleur et l\'aspect de la colonie permet de déterminer le genre probable. ', NULL, 12, 'solide', 'upload/photoMilieu/photoMilieu10.jpg'),
+    (NULL, 'XLD', 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 'extrait de levure, L-Lysine, Xylose, lactose, saccharose, désoxycholate de sodium, citrate de fer-amonium, thiosulfate de sodium, agar, rouge de phénol, eau distillée', 'Le milieu Xylose-Lysine-Désoxycholate est adapté à l\'isolement de Salmonella et Shigella à partir des aliments ou des selles.', 'Les colonies sont translucides sur fond rouge-orange. La présence ou non d\'un centre noir permet de déterminer le genre de la bactérie.', NULL, 21, 'solide', 'upload/photoMilieu/photoMilieu11.jpg'),
+    (NULL, 'VF', 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 'Base viande foie, glucose, agar, pH', 'Le milieu viande foie coulé en longs tubes fins que l\'on régénère dans un bain marie à 100°C pendant 30 minutes afin d\'expulser les gaz dissous dans la gélose. Puis avant l\'encemensement se fait suite à au moins 10 minutes de surfusion à 50°C. Il sera ensuite solidifié à 37°C. Il permet de crée un gradient de pression partielle en oxygène afin de déterminer le type respiratoire de la bactérie.', 'La lecture des réultats se fait selon la localisation de la culture et la présence de bulles d\'air. ', NULL, 7, 'solide', 'upload/photoMilieu/photoMilieu12.jpg'),
+    (NULL, 'Bouillon nitraté', 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 'Peptone trypsique de viande, Nitrate de potassium, H2O', 'Ce milieu permet l\'étude de la réduction des nitrates après une culture dans le milieu et l\'ajout de deux réactifs de mise en évidence de nitrites.', 'La lecture se fait grâce à l\'apparition d\'une coloration rouge suite à l\'ajout du réactif n°1 puis du réactif n°2.', NULL, 23, 'liquide', 'upload/photoMilieu/photoMilieu13.png');
+
 
 -- Ajout des différentes techniques d'ensemencement
-INSERT INTO bcp__techniqueencemensement VALUES ('Ecouvillonnage'), ('Rateau'), ('Ance de platine');
+INSERT INTO bcp__techniqueencemensement VALUES
+    ('Ecouvillonnage'),
+    ('Rateau'),
+    ('Ance de platine'),
+    ('En quadrant');
 
 -- Ajout des différents antibiotiques
-INSERT INTO bcp__antibiotique VALUES ('Aminosides'), ('Carbapénèmes'), ('Céphalosporines'), ('Fluoroquinolones'), ('Glycopeptides'), ('Kétolides'), ('Macrolides'), ('Monobactames'), ('Oxazolidinones'), ('Pénicillines'), ('Polypeptides'), ('Rifamycines'), ('Sulfamides'), ('Streptogramines'), ('Tétracyclines'), ('Lipoglycopeptides');
+INSERT INTO bcp__antibiotique VALUES
+    ('Acide fusidique'),
+    ('Acide nalidixique'),
+    ('Acide oxolinique'),
+    ('Acide pipémidique'),
+    ('Amikacine'),
+    ('Aminosides'),
+    ('Amoxicilline'),
+    ('Ampicilline'),
+    ('Azithomycine'),
+    ('Azlocilline'),
+    ('Aztréonam'),
+    ('Bacitracine'),
+    ('Carbapénèmes'),
+    ('Cefaclor'),
+    ('Céfadroxil'),
+    ('Céfalexine'),
+    ('Céfalotine'),
+    ('Céfamandole'),
+    ('Céfapirine'),
+    ('Cefatrizine'),
+    ('Céfazoline'),
+    ('Céfépime'),
+    ('Céfixime'),
+    ('Céfopérazone'),
+    ('Céfotaxime'),
+    ('Céfotétan'),
+    ('Céfotiam - héxétil'),
+    ('Céfotlam'),
+    ('Céfoxitine'),
+    ('Cefpirome'),
+    ('Cefpodoxime-proxétil'),
+    ('Cefsulodine'),
+    ('Ceftazidime'),
+    ('Ceftizoxime'),
+    ('Ceftriaxone'),
+    ('Céfuroxime'),
+    ('Cefuroxime-axétil'),
+    ('Céphalosporines'),
+    ('Chloramphénicol'),
+    ('Ciprofloxacine'),
+    ('Clindamycine'),
+    ('Cloxacilline'),
+    ('Colistine'),
+    ('Dibékacine'),
+    ('Doxycycline'),
+    ('Enoxacine'),
+    ('Erythromycine'),
+    ('Fluméquine'),
+    ('Fluoroquinolones'),
+    ('Fosfomycine'),
+    ('Gentamicine'),
+    ('Gépafloxacine'),
+    ('Glycopeptides'),
+    ('Imipènème'),
+    ('Isepamicine'),
+    ('Josamycine'),
+    ('Kanamycine'),
+    ('Kétolides'),
+    ('Latamoxef'),
+    ('Lincomycine'),
+    ('Lipoglycopeptides'),
+    ('Loméfloxacine'),
+    ('Loracarbef'),
+    ('Macrolides'),
+    ('Mécillinam'),
+    ('Méropénème'),
+    ('Métronidazole'),
+    ('Meziocilline'),
+    ('Midécamycine'),
+    ('Minocycline'),
+    ('Monobactames'),
+    ('Néomycine'),
+    ('Netilmicine'),
+    ('Nitrofurannes'),
+    ('Nitroxoline'),
+    ('Norfloxacine'),
+    ('Ofloxacine'),
+    ('Ornidazole'),
+    ('Oxacilline'),
+    ('Oxazolidinones'),
+    ('Péfloxacine'),
+    ('Pénicillines'),
+    ('Pipéracilline'),
+    ('Polymyxine B'),
+    ('Polypeptides'),
+    ('Pristinamycine'),
+    ('Rifampicine'),
+    ('Rifamycines'),
+    ('Sparfloxacine'),
+    ('Spectinomycine'),
+    ('Spiramycine'),
+    ('Streptogramines'),
+    ('Streptomycine'),
+    ('Sulfaméthoxazole'),
+    ('Sulfamides'),
+    ('Teicoplanine'),
+    ('Tétracyclines'),
+    ('Ticarcilline'),
+    ('Tinidazole'),
+    ('Tobramycine'),
+    ('Triméthoprime'),
+    ('Trovafloxacine'),
+    ('Vancomycine'),
+    ('Virginiamycine');
+
 
 -- Ajout des différents symptomes
-INSERT INTO bcp__symptome VALUES ('Fièvre'), ('Toux sèche'), ('Fatigue'), ('Expectorations ou flegme épais des poumons'), ('Essoufflement'), ('Douleurs osseuses ou articulaires'), ('Maux de gorge'), ('Maux de tête'), ('Frissons'), ('Nausées ou vomissements'), ('Nez bouché'), ('Diarrhée'), ('Toux de sang'), ('Yeux gonflés');
+INSERT INTO bcp__symptome VALUES
+    ('Fièvre'),
+    ('Toux sèche'),
+    ('Fatigue'),
+    ('Expectorations ou flegme épais des poumons'),
+    ('Essoufflement'),
+    ('Douleurs osseuses ou articulaires'),
+    ('Maux de gorge'),
+    ('Maux de tête'),
+    ('Frissons'),
+    ('Nausées ou vomissements'),
+    ('Nez bouché'),
+    ('Diarrhée'),
+    ('Toux de sang'),
+    ('Yeux gonflés'),
+    ('Anosmie'),
+    ('Ageusie'),
+    ('Brûlure en urinant'),
+    ('Urine trouble'),
+    ('Crampes'),
+    ('Hématurie');
 
 -- Ajout des maladies
-INSERT INTO bcp__maladie VALUES ('l’angine'), ('l’otite'), ('la sinusite'), ('la bronchite'), ('la pneumonie'), ('la tuberculose'), ('les ulcères'), ('la gastro-entérite'), ('la cholécystite'), ('la sigmoïdite'), ('l’angiocholite aiguë'), ('la pancréatite aiguë'), ('la syphilis'), ('les furoncles'), ('les abcès'), ('les panaris'), ('les impétigos'), ('les infections urinaires'), ('les infections génitales'), ('La maladie de Lyme'), ('La méningite'), ('Les abcès au cerveau'), ('la listériose'), ('la salmonellose'), ('la toxoplasmose'), ('la peste noire');
+INSERT INTO `bcp__maladie` VALUES
+    ('l’angine'),
+    ('l’otite'),
+    ('la sinusite'),
+    ('la bronchite'),
+    ('la pneumonie'),
+    ('la tuberculose'),
+    ('les ulcères'),
+    ('la gastro-entérite'),
+    ('la cholécystite (inflammation des parois de la vésicule biliaire)'),
+    ('la sigmoïdite (inflammation d’un ou des diverticules sigmoïdiens)'),
+    ('l’angiocholite aiguë (infection de la bile)'),
+    ('la pancréatite aiguë'),
+    ('la syphilis'),
+    ('les furoncles'),
+    ('les abcès'),
+    ('les panaris'),
+    ('les impétigos'),
+    ('les infections urinaires'),
+    ('les infections génitales'),
+    ('La maladie de Lyme'),
+    ('La méningite'),
+    ('Les abcès au cerveau'),
+    ('la listériose'),
+    ('la salmonellose'),
+    ('la toxoplasmose'),
+    ('cystite'),
+    ('pyélonéphrite'),
+    ('Légionellose'),
+    ('Campylobctériose'),
+    ('Salmonelloses'),
+    ('Shigellose'),
+    ('Fièvre typhoïdes'),
+    ('Chlamydiose'),
+    ('Gonorrhée'),
+    ('Syphillis'),
+    ('Borréliose'),
+    ('Tularémir'),
+    ('Brucellose');
+
 
 -- Ajout des zones du corps
-INSERT INTO bcp__zonecorps VALUES ('Abdominale: régions de la paroi antérieure de l\'abdomen'), ('Antérieur du cou: face avant du cou'), ('Axillaire: aisselle'), ('Buccale: joue'), ('Crurale antérieure: face avant de la jambe'), ('Deltoïdienne: saillie de l\'épaule'), ('Fémorale antérieure: face avant de la cuisse'), ('Inguinale: région où la cuisse rejoint le tronc'), ('Nasale: nez'), ('Orale: bouche'), ('Pectorale: régions de la poitrine'), ('Présternale: région du sternum'), ('Talocrurale antérieure: cheville'), ('Face'), ('Œil'), ('Langue'), ('Glande salivaire'), ('Oreilles'), ('Pharynx'), ('Cerveau'), ('Glande parathyroïde'), ('Péritoine'), ('Estomac'), ('Pancréas'), ('Vésicule biliaire'), ('Duodénum'), ('Iléon'), ('Cæcum'), ('Côlon'), ('Glandes surrénales'), ('Sacrum'), ('Vessie'), ('Trompe de Fallope'), ('Utérus'), ('Vulve'), ('Périnée'), ('Rectum');
+INSERT INTO bcp__zonecorps VALUES
+    ('Abdominale: régions de la paroi antérieure de l\'abdomen'),
+    ('Antérieur du cou: face avant du cou'),
+    ('Axillaire: aisselle'),
+    ('Buccale: joue'),
+    ('Crurale antérieure: face avant de la jambe'),
+    ('Deltoïdienne: saillie de l\'épaule'),
+    ('Fémorale antérieure: face avant de la cuisse'),
+    ('Inguinale: région où la cuisse rejoint le tronc'),
+    ('Nasale: nez'),
+    ('Orale: bouche'),
+    ('Pectorale: régions de la poitrine'),
+    ('Présternale: région du sternum'),
+    ('Talocrurale antérieure: cheville'),
+    ('Face'),
+    ('Œil'),
+    ('Langue'),
+    ('Glande salivaire'),
+    ('Oreilles'),
+    ('Pharynx'),
+    ('Cerveau'),
+    ('Glande parathyroïde'),
+    ('Péritoine'),
+    ('Estomac'),
+    ('Pancréas'),
+    ('Vésicule biliaire'),
+    ('Duodénum'),
+    ('Iléon'),
+    ('Cæcum'),
+    ('Côlon'),
+    ('Glandes surrénales'),
+    ('Sacrum'),
+    ('Vessie'),
+    ('Trompe de Fallope'),
+    ('Utérus'),
+    ('Vulve'),
+    ('Périnée'),
+    ('Rectum'),
+    ('Peau');
 
 -- Ajout des type d'étude
-INSERT INTO bcp__typeetude VALUES ('DUT'), ('Fac'), ('BTS'), ('Master'), ('Doctorat'), ('Ingénieur');
+INSERT INTO bcp__typeetude VALUES
+    ('DUT'),
+    ('BTS'),
+    ('Licence'),
+    ('Master'),
+    ('Doctorat'),
+    ('Ingénieur'),
+    ('CPGE');
 
 -- Ajout des utilisateurs
 INSERT INTO bcp__user VALUES
-    (NULL, 'ONILLON', 'Maxime', '2000-11-08', 'monillon@outlook.fr', 'TRUC', 'upload/photoUser/photoUser1.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'GUILLET', 'Orlane', '1999-12-06', 'guilletorlane@gmail.com', 'MACHIN', 'upload/photoUser/photoUser2.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'MICHEL', 'Achil', '2000-03-13', 'michel.achil@orange.fr', 'BIDULE', 'upload/photoUser/photoUser3.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'REBOUT', 'Aline', '2000-05-16', 'aline.rebout@outlook.fr', 'CHOSE', 'upload/photoUser/photoUser4.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'MABILEAU', 'Fabienne', '1980-07-17', 'fabienne.mabileau@domaine.Fr', 'JadoreLesBacteries', 'upload/photoUser/photoUser5.jpg', 1, 'Master', 'upload/justificatif/justificatif1.pdf', 1, 1),
-    (NULL, 'FAGOT', 'Sophie', '1970-10-20', 'sophie.fagot@domaine.fr', 'ANGERS', 'upload/photoUser/photoUser6.jpg', 1, 'Master', 'upload/justificatif/justificatif2.pdf', 0, 0);
+    (NULL, 'ONILLON', 'Maxime', '2000-11-08', 'monillon@outlook.fr', '$2y$12$Bc/Gxp2SPoFrhPzVVe1ZE.Eaek/jPnWZ5smv7Itu4hIxeKtihrjRO', 'upload/photoUser/photoUser1.jpg', 0, 'DUT', NULL, NULL, 1),
+    (NULL, 'GUILLET', 'Orlane', '1999-12-06', 'guilletorlane@gmail.com ', '$2y$12$VUeyfUc0EwPNb0YN.BUrZ.id8FdWkD7ZyBZCZjuvULdc4oQ9lsqqW', 'upload/photoUser/photoUser2.jpg', 0, 'DUT', NULL, NULL, 1),
+    (NULL, 'MICHEL', 'Achil', '2000-03-13', 'michel.achil@orange.fr', '$2y$12$6O3Ix9sdCmJdIrSRm3E3wuQE300t3ii1DrwYxK3/oy8Vrg.Z.5bgS', 'upload/photoUser/photoUser3.jpg', 0, 'DUT', NULL, NULL, 1),
+    (NULL, 'REBOUT', 'Aline', '2000-05-16', 'aline.rebout@outlook.fr ', '$2y$12$McSgP3RObeV2LXYNQVpykem8ANVUFmqAixpy66x1HLekKNjhDHGBi', 'upload/photoUser/photoUser4.jpg', 0, 'DUT', NULL, NULL, 1),
+    (NULL, 'MABILEAU', 'Fabienne', '1980-07-17', 'fabienne.mabileau@domaine.Fr', '$2y$12$tlrklEQBi9zYP97USnwfK.Bbw8zh.tvk4CqzgP2w6NcRNj/VWIit.', 'upload/photoUser/photoUser5.jpg', 1, 'Master', 'upload/justificatif/justificatif5.pdf', 1, 1),
+    (NULL, 'FAGOT', 'Sophie', '1970-10-20', 'sophie.fagot@domaine.fr', '$2y$12$i4dMGOY1RrEqzUwj6dFx9.MZme4EK2sxYuflCDBIS9NtBSnbsrWlC', 'upload/photoUser/photoUser6.jpg', 1, 'Master', 'upload/justificatif/justificatif6.pdf', 0, 0);
 
 
 -- Ajout des bactéries
 INSERT INTO bcp__bacterie VALUES
     (NULL, 'Escherichia', 'coli', NULL, 'Positif', 'upload/photoBacterie/photoBacterie1.jpg', 1, 0, 0, 0, '2021-01-14 20:25:00', 37, NULL, 'Bacille'),
-    (NULL, 'Yersinia', 'pestis', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie2.png', 1, 0, 0, 0, '2021-01-14 20:25:00', NULL, NULL, 'Bacille'),
-    (NULL, 'Lactobacillus', 'rhamnosus', NULL, 'Positif', 'upload/photoBacterie/photoBacterie3.png', 1, 0, 0, 0, '2021-01-14 20:25:00',37, NULL, 'Bacille');
+    (NULL, 'Yersinia', 'pestis', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie2.png', 1, 0, 0, 0, '2021-01-14 20:25:00', 30, NULL, 'Bacille'),
+    (NULL, 'Lactobacillus', 'rhamnosus', NULL, 'Positif', 'upload/photoBacterie/photoBacterie3.png', 1, 0, 0, 0, '2021-01-14 20:25:00', 37, NULL, 'Bacille'),
+    (NULL, 'Salmonella ', 'spp', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie4.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Salmonella ', 'enterica', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie5.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Staphylococcus', 'aureus', NULL, 'Positif', 'upload/photoBacterie/photoBacterie6.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Neisseria', 'gonorrhoeae', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie7.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Neisseria', 'meningitidis', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie8.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Streptococcus', 'pyogenes', NULL, 'Positif', 'upload/photoBacterie/photoBacterie9.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Streptococcus', 'pneumoniae', NULL, 'Positif', 'upload/photoBacterie/photoBacterie10.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'diplocoque'),
+    (NULL, 'Streptococcus', 'agalactiae', NULL, 'Positif', 'upload/photoBacterie/photoBacterie11.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Staphylococcus', 'epidermidis', NULL, 'Positif', 'upload/photoBacterie/photoBacterie12.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Staphylococcus', 'auricularis', NULL, 'Positif', 'upload/photoBacterie/photoBacterie13.jpg', 0, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coque'),
+    (NULL, 'Pneudomonas', 'aeruginosa', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie14.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Haemophilus', 'influenzae', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie15.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Coccobacille'),
+    (NULL, 'Mycobacterium', 'tuberculosis', NULL, 'Autre', 'upload/photoBacterie/photoBacterie16.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Klebsiellla', 'pneumoniae', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie17.jpg', 0, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Treponema', 'pallidum', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie18.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Helicoïdale'),
+    (NULL, 'Leptospira', 'interrogans', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie19.png', 1, 0, 0, 0, '2021-01-29 06:02:14', 30, NULL, 'Leptospire'),
+    (NULL, 'Escherichia', 'coli', 'O157:H7', 'Positif', 'upload/photoBacterie/photoBacterie20.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 40, NULL, 'Bacille'),
+    (NULL, 'Vibrio', 'cholerae', NULL, 'Negatif', 'upload/photoBacterie/photoBacterie21.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille'),
+    (NULL, 'Vibrio', 'cholerae', 'O139', 'Negatif', 'upload/photoBacterie/photoBacterie22.jpg', 1, 0, 0, 0, '2021-01-29 06:02:14', 37, NULL, 'Bacille');
 
 
+-- ajout des articles
+INSERT INTO bcp__article VALUES
+    (NULL, 'PROBIOTIQUES : QU\'EST-CE QUE LE LACTOBACILLUS RHAMNOSUS ?', 'Apyforme', 'Lactobacillus rhamnosus est une souche microbiotique qui concourt à l\'efficacité de la flore intestinale, participant ainsi au confort digestif et au renforcement du système immunitaire. Étudié depuis plusieurs décennies, il procure des effets bénéfiques prouvés scientifiquement. C\'est pourquoi il fait partie de la formule de nombreux compléments alimentaires. Retrouvez dans cet article tout ce qu\'il faut savoir à propos de Lactobacillus rhamnosus.', 'https://www.apyforme.com/blog/les-probiotiques/probiotiques-qu-est-ce-que-le-lactobacillus-rhamnosus-', '2020-07-01', 3),
+    (NULL, 'Staphylococcus aureus : place et impact dans la prise en charge des pneumopathies nosocomiales', 'D. Benhamou, A. S. Carrié, F. Lecomte', 'Staphylococcus aureus (SA) a acquis une place primordiale dans les pneumopathies nosocomiales en termes de fréquence et de gravité et pose des problèmes thérapeutiques du fait essentiellement de ses résistances aux antibiotiques et des difficultés de gérer les antistaphylococciques majeurs.', 'https://www.em-consulte.com/article/157140/staphylococcus-aureus-%C2%A0-place-et-impact-dans-la-pr', '2008-04-30', 6),
+    (NULL, 'Infections à « Haemophilus influenzae »', 'A.-E. Deghmane, M.-K. Taha', 'Haemophilus influenzae est une bactérie sous forme de coccobacille à Gram négatif dont l\'homme est le seul hôte naturel connu. Cette bactérie colonise fréquemment les voies respiratoires chez l\'être humain comme constituant de la flore normale des humains. La transmission est aérogène et le portage rhinopharyngé est généralement asymptomatique. Les infections invasives à H. influenzae se produisent lorsque la bactérie traverse le rhinopharynx, envahit la circulation sanguine et se propage pour atteindre des sites normalement stériles. Les infections invasives à H. influenzae peuvent se manifester comme une septicémie, une pneumonie invasive, une épiglottite et une méningite bactérienne aiguë. H. influenzae est divisé en deux grandes catégories : souches capsulées et non capsulées. La capsule détermine le sérotype et c\'est le sérotype b (H. influenzae b) qui est le plus pathogène chez l\'homme, affectant principalement les nourrissons et les jeunes enfants. Au début des années 1990, le vaccin conjugué contre le sérotype b a été introduit dans la plupart des pays européens, et l\'incidence des infections invasives à H. influenzae b a considérablement baissé. Les autres sérotypes (a, c, d, e et f) restent rarement associées aux infections invasives et peuvent révéler des comorbidités subjacentes. Les souches non capsulées sont également appelées « non typables » (H. influenzae NT). Elles causent habituellement des infections non invasives des voies respiratoires supérieures, telles que l\'otite moyenne et la sinusite. Cependant, les souches H. influenzae NT peuvent être responsables d\'infections invasives.', 'https://www.em-consulte.com/article/1275523/infections-a-haemophilus-influenzae', '2019-02-11', 15),
+    (NULL, 'LE CHOLÉRA', 'Institut Pasteur', 'Le choléra est une maladie diarrhéique épidémique, strictement humaine, due à des bactéries appartenant aux sérogroupes O1 et O139 de l’espèce Vibrio cholerae. Ce bacille fût initialement observé par Pacini en 1854 puis isolé en 1883 par Robert Koch en Inde. La bactérie V. cholerae sérogroupe O1, biotype El Tor, est répandue sur toute la planète, qui subit actuellement la septième pandémie de choléra. L’Organisation mondiale de la santé estime à près de 3 millions le nombre de cas et à plus de 95 000 le nombre de décès dus à cette maladie chaque année dans le monde. Toutes les régions du monde déclarent des cas de choléra, l’Afrique est le continent le plus touché et concentre plus de 50% des cas. Le taux global de létalité a été de 1,8%, en 2016, mais a dépassé les 6% parmi les groupes vulnérables résidant dans des zones à haut risque.', 'https://www.pasteur.fr/fr/centre-medical/fiches-maladies/cholera', '2019-09-16', 21);
+
+-- ajout fiche technique
+INSERT INTO bcp__fichetechnique VALUES
+    (NULL, 'Réaliser une coloration de GRAM', 'upload/ficheTechnique/ficheTechnique1.pdf'),
+    (NULL, 'Réaliser un antibiogramme', 'upload/ficheTechnique/ficheTechnique2.pdf'),
+    (NULL, 'Ensemencer une galerie API', 'upload/ficheTechnique/ficheTechnique3.pdf'),
+    (NULL, 'Réaliser une coloration de Ziehl-Neelsen', 'upload/ficheTechnique/ficheTechnique4.pdf'),
+    (NULL, 'Réaliser le test de l\'ONPG', 'upload/ficheTechnique/ficheTechnique5.pdf'),
+    (NULL, 'Réaliser le test VP', 'upload/ficheTechnique/ficheTechnique6.pdf'),
+    (NULL, 'Coulage des boîtes de Pétri', 'upload/ficheTechnique/ficheTechnique7.pdf'),
+    (NULL, 'Description macroscopique ', 'upload/ficheTechnique/ficheTechnique8.pdf'),
+    (NULL, 'Ensemencement d\'un milieu liquide', 'upload/ficheTechnique/ficheTechnique9.pdf'),
+    (NULL, 'Ensemencement en quadrants', 'upload/ficheTechnique/ficheTechnique10.pdf'),
+    (NULL, 'Ensemencement par écouvillonnage', 'upload/ficheTechnique/ficheTechnique11.pdf'),
+    (NULL, 'Etat frais', 'upload/ficheTechnique/ficheTechnique12.pdf'),
+    (NULL, 'Indicateur coloré de pH', 'upload/ficheTechnique/ficheTechnique13.pdf'),
+    (NULL, 'Test groupage des Streptocoques', 'upload/ficheTechnique/ficheTechnique14.pdf'),
+    (NULL, 'Recherche de la staphyylocoagulase', 'upload/ficheTechnique/ficheTechnique15.pdf'),
+    (NULL, 'Test d\'agglutination rapide', 'upload/ficheTechnique/ficheTechnique16.pdf');
 
 
 
