@@ -44,7 +44,9 @@ INSERT INTO bcp__techniqueencemensement VALUES
     ('Ecouvillonnage'),
     ('Rateau'),
     ('Ance de platine'),
-    ('En quadrant');
+    ('En quadrant'),
+    ('Piqure centrale'),
+    ('Ajout de colonie dans milieu');
 
 -- Ajout des différents antibiotiques
 INSERT INTO bcp__antibiotique VALUES
@@ -333,5 +335,92 @@ INSERT INTO bcp__fichetechnique VALUES
     (NULL, 'Test d\'agglutination rapide', 'upload/ficheTechnique/ficheTechnique16.pdf');
 
 
+-- remplissage de la table applique
+INSERT INTO bcp__applique VALUES
+    (1, 'Ecouvillonnage'),
+    (1, 'Rateau'),
+    (1, 'Ance de platine'),
+    (1, 'En quadrant'),
+    (2, 'Ecouvillonnage'),
+    (2, 'Rateau'),
+    (2, 'Ance de platine'),
+    (2, 'En quadrant'),
+    (3, 'Ecouvillonnage'),
+    (3, 'Rateau'),
+    (3, 'Ance de platine'),
+    (3, 'En quadrant'),
+    (4, 'Ecouvillonnage'),
+    (4, 'Rateau'),
+    (4, 'Ance de platine'),
+    (4, 'En quadrant'),
+    (5, 'Ecouvillonnage'),
+    (5, 'Rateau'),
+    (5, 'Ance de platine'),
+    (5, 'En quadrant'),
+    (6, 'Ecouvillonnage'),
+    (6, 'Rateau'),
+    (6, 'Ance de platine'),
+    (6, 'En quadrant'),
+    (7, 'Ecouvillonnage'),
+    (7, 'Rateau'),
+    (7, 'Ance de platine'),
+    (7, 'En quadrant'),
+    (8, 'Ecouvillonnage'),
+    (8, 'Rateau'),
+    (8, 'Ance de platine'),
+    (8, 'En quadrant'),
+    (9, 'Ecouvillonnage'),
+    (9, 'Rateau'),
+    (9, 'Ance de platine'),
+    (9, 'En quadrant'),
+    (9, 'Ajout de colonie dans milieu'),
+    (10, 'Ecouvillonnage'),
+    (10, 'Rateau'),
+    (10, 'Ance de platine'),
+    (10, 'En quadrant'),
+    (11, 'Ecouvillonnage'),
+    (11, 'Rateau'),
+    (11, 'Ance de platine'),
+    (11, 'En quadrant'),
+    (12, 'Piqure centrale'),
+    (13, 'Ajout de colonie dans milieu');
+
+
+-- remplissage de la table estMentionné
+INSERT INTO bcp__estmensione VALUES
+    (1, 7),
+    (2, 7),
+    (3, 7),
+    (4, 7),
+    (5, 7),
+    (6, 7),
+    (7, 7),
+    (8, 7),
+    (9, 7),
+    (10, 7),
+    (11, 7),
+    (13, 9),
+    (1, 11),
+    (2, 11),
+    (3, 11),
+    (4, 11),
+    (5, 11),
+    (6, 11),
+    (7, 11),
+    (8, 11),
+    (9, 11),
+    (10, 11),
+    (11, 11),
+    (1, 10),
+    (2, 10),
+    (3, 10),
+    (4, 10),
+    (5, 10),
+    (6, 10),
+    (7, 10),
+    (8, 10),
+    (9, 10),
+    (10, 10),
+    (11, 10);
 
 
