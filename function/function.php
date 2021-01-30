@@ -37,9 +37,9 @@ function symptomes():array {
    return ($query->fetchAll(PDO::FETCH_COLUMN));
 }
 
-function articleDESC():array {
+function articleDESC10():array {
    $bdd = connect();
-   $query = $bdd->prepare('SELECT * FROM bcp__article ORDER BY datePublication_article DESC');
+   $query = $bdd->prepare('SELECT * FROM bcp__article ORDER BY datePublication_article DESC LIMIT 10');
    $query->execute();
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
