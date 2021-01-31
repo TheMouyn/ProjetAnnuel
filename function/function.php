@@ -43,4 +43,18 @@ function articleDESC10():array {
    $query->execute();
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+function articleDESCall():array {
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__article ORDER BY datePublication_article DESC');
+   $query->execute();
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
+
+function nbArtcile():int {
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT COUNT(*) FROM bcp__article');
+   $query->execute();
+   $result = $query->fetchAll(PDO::FETCH_COLUMN);
+   return ($result[0]);
+}
 

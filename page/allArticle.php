@@ -1,6 +1,6 @@
 <?php
-$titreOnglet = "Bactépédia - Accueil";
-$titrePage = "Page d'Accueil - Derniers articles";
+$titreOnglet = "Bactépédia - Articles";
+$titrePage = "Page d'Accueil - Tous les articles";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 require_once '../function/function.php';
@@ -9,7 +9,7 @@ require_once '../function/miseEnPage.php';
 ?>
 <div class="contenu">
    <?php
-   foreach (articleDESC10()as $article) {
+   foreach (articleDESCall()as $article) {
       $date = enDate($article['datePublication_article']);
       echo <<<HTML
     <div>
@@ -25,12 +25,6 @@ HTML;
    }
    ?>
 
-   <?php
-//    Ajout du bouton pour afficher tous les articles
-   if(nbArtcile()>10){
-       echo "<a href='allArticle.php' style='border: black solid 1px; color: blue;'>Voir tous les articles </a>";
-   }
-   ?>
 </div>
 
 <?php
