@@ -1,5 +1,8 @@
 -- le but est de remplir la base de donnée avec des données de test
 
+-- réglage de l'encodage
+SET NAMES 'latin1';
+
 -- Ajout des différentes formes
 INSERT INTO bcp__forme VALUES
     ('Bacille'),
