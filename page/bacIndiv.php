@@ -1,6 +1,6 @@
 <?php
 // TODO : Vérification de la visibilité de la bactérie
-// TODO: Ajout des différentes relation direct : milieu, article, maladie, symptôme, zone corps, résistance,
+// TODO: Ajout des différentes relation direct : article, résistance,
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
@@ -104,6 +104,27 @@ require_once '../elements/nav.php';
    ?>
 
 
+   <?php
+   // permet d'afficher les zones corps atteintes si il y en a
+   $zones = zoneCorpsPourUneBacterie($bacterie['id']);
+   if (isset($zones[0])) :
+      $listeZone = [];
+      foreach ($zones as $zone){
+         $listeZone[] = $zone['nom_zoneCorps'];
+      }
+      ?>
+
+       <p>
+           Cette bactérie atteindre les zones du corps suivante :
+          <?php
+          echo strtolower(implode(', ', $listeZone));
+          ?>
+       </p>
+   <?php
+   endif;
+   ?>
+
+
 
 
     <?php
@@ -129,7 +150,7 @@ require_once '../elements/nav.php';
 
     <pre>
        <?php
-       echo var_dump(symptomePourUneBacterie($bacterie['id']));
+       echo var_dump(zoneCorpsPourUneBacterie($bacterie['id']));
        ?>
     </pre>
 

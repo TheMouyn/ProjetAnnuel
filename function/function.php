@@ -108,3 +108,13 @@ function symptomePourUneBacterie($idBac):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+function zoneCorpsPourUneBacterie($idBac):array {
+   // récupère les zones corps qui peuvent être atteint pas la bactérie
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT nom_zoneCorps FROM bcp__atteint WHERE id_bacterie = :idBac;');
+   $query->execute([
+      'idBac' => $idBac
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
