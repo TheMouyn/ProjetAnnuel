@@ -53,7 +53,7 @@ require_once '../elements/nav.php';
 
     <p>Température optimale de culture : <?= $bacterie['forme'] ?></p>
 
-    <p>Gram : <span style="<?php if ($bacterie['gram'] === 'Positif'){echo 'color: darkviolet;';}else{echo 'color: deeppink;';} ?>"><?= $bacterie['gram']?> </span></p>
+    <p>Gram : <span style="<?php if ($bacterie['gram'] === 'Positif'){echo 'color: darkviolet;';}elseif($bacterie['gram'] === 'Negatif'){echo 'color: deeppink;';} ?>"><?= $bacterie['gram']?> </span></p>
 
     <p>Température optimale de culture : <?= $bacterie['temperature'] ?> °C</p>
 
