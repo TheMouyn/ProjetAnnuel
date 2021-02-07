@@ -1,5 +1,6 @@
 <?php
 // TODO : Vérification de la visibilité de la bactérie
+// TODO: Ajout des différentes relation direct : milieu, article, maladie, symptôme, zone corps, résistance,
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
@@ -59,6 +60,33 @@ require_once '../elements/nav.php';
       echo "<p>Prophylaxie : <br> {$bacterie['prophylaxie']} </p>";
    }
    ?>
+
+    <?php
+    // permet d'afficher les milieux de culture uniquement si il y en a
+    $milieux = milieuPourUneBacterie($bacterie['id']);
+    if (isset($milieux[0])) :
+    ?>
+        <div>
+            <p>Milieux sur lesquels cette bactérie pousse :</p>
+            <ul>
+               <?php
+               foreach($milieux as $milieu){
+                   $lien = '../milieuIndiv' . '?' . $milieu['id_milieu'];
+                   echo "<li><a href='$lien'>{$milieu['nature_milieu']}</a></li>";
+               }
+               ?>
+            </ul>
+        </div>
+   <?php
+   endif;
+   ?>
+
+
+    <pre>
+       <?php
+       echo var_dump(milieuPourUneBacterie($bacterie['id']));
+       ?>
+    </pre>
 
 
 </div>
