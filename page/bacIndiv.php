@@ -1,9 +1,13 @@
 <?php
-// TODO : Vérification de la visibilité de la bactérie
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
 $bacBDD = uneBacterie($_SERVER['QUERY_STRING']);
+
+if (!isset($bacBDD[0])){
+    header('Location:errorBacIndiv.php');
+    die();
+}
 
 $bacterie = [
    'id' => $bacBDD[0]['id_bacterie'],
@@ -18,8 +22,14 @@ $bacterie = [
    'dateDerniereModif' => enDateHeure($bacBDD[0]['dateModif_bacterie']),
    'temperature' => $bacBDD[0]['temperatureOptimale_bacterie'],
    'prophylaxie' => $bacBDD[0]['prophylaxie_bacterie'],
-   'photo' => $bacBDD[0]['LienInterneImage_bacterie']
+   'photo' => $bacBDD[0]['LienInterneImage_bacterie'],
+   'visible' => $bacBDD[0]['visible_bacterie']
 ];
+
+if($bacterie['visible'] == 0){
+   header('Location:errorBacIndiv.php');
+   die();
+}
 
 
 $nomBac = $bacterie['genre'] . ' ' . $bacterie['espece'];
