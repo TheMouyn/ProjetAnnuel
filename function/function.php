@@ -128,3 +128,13 @@ function resistancePourUneBacterie($idBac):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+function articlePourUneBacterie($idBac):array {
+   // récupère les articles où la bactérie est citée
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__article WHERE id_bacterie = :idBac ORDER BY datePublication_article DESC;');
+   $query->execute([
+      'idBac' => $idBac
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}

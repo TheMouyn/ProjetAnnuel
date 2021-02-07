@@ -1,6 +1,5 @@
 <?php
 // TODO : Vérification de la visibilité de la bactérie
-// TODO: Ajout des différentes relation direct : article, résistance,
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
@@ -168,14 +167,30 @@ require_once '../elements/nav.php';
    endif;
    ?>
 
+    <br>
 
+   <?php
+   // permet d'afficher les articles où la bactéries est citée si il y en a
+   $articles = articlePourUneBacterie($bacterie['id']);
+   if (isset($articles[0])) :
+      echo "<p>Liste des articles où la bactérie est citée : </p>";
 
+      foreach ($articles as $article) {
+         $date = enDate($article['datePublication_article']);
+         echo <<<HTML
+        <div>
+            <h4> {$article['titre_article']} </h4>
+            <em> {$article['auteur_article']}  | Publié le $date</em>
+            <p> {$article['extrait_article']} </p>
+            <a href=" {$article['LienSource_article']}" target="_blank" style="color: blue;"> {$article['LienSource_article']} </a>
+        </div>
+        <br>
+        <hr>
 
-    <pre>
-       <?php
-       echo var_dump(resistancePourUneBacterie($bacterie['id']));
-       ?>
-    </pre>
+HTML;
+      }
+   endif;
+   ?>
 
 
 </div>
