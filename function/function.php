@@ -97,3 +97,14 @@ function maladiePourUneBacterie($idBac):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+
+function symptomePourUneBacterie($idBac):array {
+   // récupère les symptômes que peut provoquer la bactérie
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT nom_symptome FROM bcp__provoquesymptome WHERE id_bacterie = :idBac;');
+   $query->execute([
+      'idBac' => $idBac
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}

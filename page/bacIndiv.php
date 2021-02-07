@@ -83,6 +83,28 @@ require_once '../elements/nav.php';
     ?>
 
 
+   <?php
+   // permet d'afficher les symptômes provoquées si il y en a
+   $symptomes = symptomePourUneBacterie($bacterie['id']);
+   if (isset($symptomes[0])) :
+      $listeSymptome = [];
+      foreach ($symptomes as $symptome){
+         $listeSymptome[] = $symptome['nom_symptome'];
+      }
+      ?>
+
+       <p>
+           Cette bactérie peut provoquer ces symptômes :
+          <?php
+          echo strtolower(implode(', ', $listeSymptome));
+          ?>
+       </p>
+   <?php
+   endif;
+   ?>
+
+
+
 
     <?php
     // permet d'afficher les milieux de culture uniquement si il y en a
@@ -107,7 +129,7 @@ require_once '../elements/nav.php';
 
     <pre>
        <?php
-       echo var_dump(maladiePourUneBacterie($bacterie['id']));
+       echo var_dump(symptomePourUneBacterie($bacterie['id']));
        ?>
     </pre>
 
