@@ -148,9 +148,32 @@ require_once '../elements/nav.php';
    ?>
 
 
+   <?php
+   // permet d'afficher les résistance de la bactérie si il y en a
+   $resistances = resistancePourUneBacterie($bacterie['id']);
+   if (isset($resistances[0])) :
+      $listeResistance = [];
+      foreach ($resistances as $resistance){
+         $listeResistance[] = $resistance['nom_antibiotique'];
+      }
+      ?>
+
+       <p>
+           Cette bactérie on des résistances connus pour les antibiotiques suivant :
+          <?php
+          echo strtolower(implode(', ', $listeResistance));
+          ?>
+       </p>
+   <?php
+   endif;
+   ?>
+
+
+
+
     <pre>
        <?php
-       echo var_dump(zoneCorpsPourUneBacterie($bacterie['id']));
+       echo var_dump(resistancePourUneBacterie($bacterie['id']));
        ?>
     </pre>
 

@@ -118,3 +118,13 @@ function zoneCorpsPourUneBacterie($idBac):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+function resistancePourUneBacterie($idBac):array {
+   // récupère les résistances de bactérie si il y en a
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT nom_antibiotique FROM bcp__resistance WHERE id_bacterie = :idBac;');
+   $query->execute([
+      'idBac' => $idBac
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
