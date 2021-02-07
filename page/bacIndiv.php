@@ -61,6 +61,29 @@ require_once '../elements/nav.php';
    }
    ?>
 
+
+   <?php
+   // permet d'afficher les maladies provoquées si il y en a
+   $maladies = maladiePourUneBacterie($bacterie['id']);
+   if (isset($maladies[0])) :
+      $listeMaladie = [];
+      foreach ($maladies as $maladie){
+          $listeMaladie[] = $maladie['nom_maladie'];
+      }
+   ?>
+
+   <p>
+       Cette bactérie peut provoquer :
+      <?php
+      echo strtolower(implode(', ', $listeMaladie));
+      ?>
+   </p>
+   <?php
+    endif;
+    ?>
+
+
+
     <?php
     // permet d'afficher les milieux de culture uniquement si il y en a
     $milieux = milieuPourUneBacterie($bacterie['id']);
@@ -84,7 +107,7 @@ require_once '../elements/nav.php';
 
     <pre>
        <?php
-       echo var_dump(milieuPourUneBacterie($bacterie['id']));
+       echo var_dump(maladiePourUneBacterie($bacterie['id']));
        ?>
     </pre>
 
