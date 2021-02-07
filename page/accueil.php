@@ -28,7 +28,7 @@ HTML;
    <?php
 //    Ajout du bouton pour afficher tous les articles
    if(nbArtcile()>10){
-       echo "<a href='allArticle.php' style='border: black solid 1px; color: blue;'>Voir tous les articles </a>";
+       echo "<a href='allArticle.php' style='color: blue;'>Voir tous les articles </a>";
    }
    ?>
 </div>
