@@ -3,6 +3,7 @@ $titreOnglet = "Bactépédia - Créer un compte";
 $titrePage = "Créer un compte";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
+require_once '../function/miseEnPage.php';
 
 ?>
 <div class="contenu">
@@ -11,7 +12,7 @@ require_once '../elements/nav.php';
 
         <!--TODO: Faire le script de création de compte, génération mail-->
         <div style="display:flex;justify-content: center; margin: 50px 0; width: 350px;">
-            <form action="script-login.php" method="POST">
+            <form action="" method="POST">
                 <input class="login-item" type="text" name="prenom" placeholder="Prénom" required>
 
                 <input class="login-item" type="text" name="nom" placeholder="Nom de famille" required>
