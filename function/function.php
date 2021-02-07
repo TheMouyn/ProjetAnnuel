@@ -58,3 +58,13 @@ function nbArtcile():int {
    return ($result[0]);
 }
 
+
+function uneBacterie($id):array {
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__bacterie WHERE id_bacterie = :id');
+   $query->execute([
+      'id' => $id
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+
+}
