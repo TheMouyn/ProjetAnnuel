@@ -185,3 +185,30 @@ a.button.one:hover:before, a.button.one:hover:after {
     height: 24px;
     margin: 7px 0px;
 }
+
+.msg-error{
+    text-align: center;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: solid 1px #f5c6cb;
+
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.msg-success{
+    text-align: center;
+    color: #155724;
+    background-color: #d4edda;
+    border: solid 1px #c3e6cb;
+
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+
+}
