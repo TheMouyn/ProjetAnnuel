@@ -19,3 +19,12 @@ function message($message, $type):string{
 HTML;
 
 }
+
+function OuiNon($chiffre):string{
+   // Permet de change un 0 ou un 1 en Oui ou Non
+   if($chiffre == '0'){
+      return ('Non');
+   } elseif ($chiffre == '1'){
+      return ('Oui');
+   }
+}
