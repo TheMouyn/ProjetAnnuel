@@ -138,3 +138,15 @@ function articlePourUneBacterie($idBac):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+
+function unMilieu($id):array {
+   // donne les informations d'un milieu grace à son id
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__milieu WHERE id_milieu = :id');
+   $query->execute([
+      'id' => $id
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+
+}
