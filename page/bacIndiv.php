@@ -146,7 +146,7 @@ require_once '../elements/nav.php';
             <ul>
                <?php
                foreach($milieux as $milieu){
-                   $lien = '../milieuIndiv' . '?' . $milieu['id_milieu'];
+                   $lien = 'milieuIndiv.php' . '?' . $milieu['id_milieu'];
                    echo "<li><a href='$lien'>{$milieu['nature_milieu']}</a></li>";
                }
                ?>
