@@ -41,7 +41,7 @@ require_once '../elements/nav.php';
 
 ?>
 <div class="contenu">
-    <img class="imgBacIndiv" src="../<?= $bacterie['photo'] ?>" alt="Photo microscope escherichia coli">
+    <img class="imgBacIndiv" src="../<?= $bacterie['photo'] ?>" alt="Photo microscope de la bactérie">
 
     <p>Nom genre : <?= $bacterie['genre'] ?></p>
     <p>Nom espèce : <?= $bacterie['espece'] ?></p>
