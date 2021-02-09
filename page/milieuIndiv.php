@@ -101,6 +101,27 @@ HTML;
     <p>Etat physique du milieu : <?= $milieu['etat'] ?></p>
 
    <?php
+   // permet d'afficher les bactéries qui pousse sur ce milieu de culture si i y en a
+   $bacteries = bacteriePourUnMilieu($milieu['id']);
+   if (isset($bacteries[0])) :
+      ?>
+       <div>
+           <p>Les bactéries suivante pousse sur ce milieu : </p>
+           <ul>
+              <?php
+              foreach($bacteries as $bacterie){
+                 $lien = 'bacIndiv.php' . '?' . $bacterie['id_bacterie'];
+                 echo "<li><a href='$lien'>{$bacterie['genre_bacterie']} {$bacterie['espece_bacterie']} {$bacterie['serovar_bacterie']}</a></li>";
+              }
+              ?>
+           </ul>
+       </div>
+   <?php
+   endif;
+   ?>
+
+
+   <?php
    // TODO: Lecture résultats
    ?>
 

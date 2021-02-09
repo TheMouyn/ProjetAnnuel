@@ -150,3 +150,13 @@ function unMilieu($id):array {
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 
 }
+
+function bacteriePourUnMilieu($idMilieu):array {
+   // récupère les milieux où pousse la bactérie
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie FROM bcp__bacterie JOIN bcp__pousse USING(id_bacterie) WHERE id_milieu= :idMilieu;');
+   $query->execute([
+      'idMilieu' => $idMilieu
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
