@@ -212,3 +212,16 @@ a.button.one:hover:before, a.button.one:hover:after {
     border-radius: .25rem;
 
 }
+
+.tableCarac{
+    margin-left: 150px;
+}
+
+.tableCarac, .tableCarac td {
+    border: 1px solid #333;
+}
+
+.tableCarac thead,.tableCarac tfoot {
+    background-color: #333;
+    color: #fff;
+}
