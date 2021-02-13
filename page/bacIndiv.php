@@ -32,7 +32,7 @@ if($bacterie['visible'] == 0){
 }
 
 
-$nomBac = $bacterie['genre'] . ' ' . $bacterie['espece'];
+$nomBac = $bacterie['genre'] . ' ' . $bacterie['espece'] . ' ' . $bacterie['serotype'];
 
 $titreOnglet = "Bactépédia - $nomBac";
 $titrePage = "$nomBac";
