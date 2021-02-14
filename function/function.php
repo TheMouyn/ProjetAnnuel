@@ -178,3 +178,13 @@ function userExiste($mailUser){
 
 
 }
+
+function favorisUser($idUser):array {
+   // récupère les favoris d'un utilisateur
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie FROM bcp__bacterie JOIN bcp__favoris USING(id_bacterie) WHERE id_user = :idUser;');
+   $query->execute([
+      'idUser' => $idUser
+   ]);
+   return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
