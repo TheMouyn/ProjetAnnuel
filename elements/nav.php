@@ -29,7 +29,7 @@ session_start();
               <img src="../style/img/account.svg" alt="">
               <div class="textelien">Mon compte</div>
           </a>
-          <a href="#" class="button one">
+          <a href="../page/favoris.php" class="button one">
               <img src="../style/img/favoris.svg" alt="">
               <div class="textelien">Mes favoris</div>
           </a>
@@ -71,7 +71,7 @@ session_start();
               <img src="../style/img/account.svg" alt="">
               <div class="textelien">Mon compte</div>
           </a>
-          <a href="#" class="button one">
+          <a href="../page/favoris.php" class="button one">
               <img src="../style/img/favoris.svg" alt="">
               <div class="textelien">Mes favoris</div>
           </a>
