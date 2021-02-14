@@ -31,7 +31,7 @@
         <img src="../style/img/login.svg" alt="">
         <div class="textelien">Connexion</div>
     </a>
-    </a><a href="#" class="button one">
+    <a href="../page/disconect.php" class="button one">
         <img src="../style/img/logout.svg" alt="">
         <div class="textelien">Déconnexion</div>
     </a>
