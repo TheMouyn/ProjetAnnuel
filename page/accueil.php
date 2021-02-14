@@ -8,6 +8,8 @@ require_once '../function/miseEnPage.php';
 
 ?>
 <div class="contenu">
+
+
    <?php
    foreach (articleDESC10()as $article) {
       $date = enDate($article['datePublication_article']);
