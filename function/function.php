@@ -160,3 +160,21 @@ function bacteriePourUnMilieu($idMilieu):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+function userExiste($mailUser){
+   // mail existe dans la bdd : revois null ou le tableau avec les informations
+   $bdd = connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__user WHERE email_user = :mailUser LIMIT 1;');
+   $query->execute([
+      'mailUser' => $mailUser
+   ]);
+   $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+   if (!empty($resultat[0])){
+      return $resultat;
+   } else {
+      return null;
+   }
+
+
+}
