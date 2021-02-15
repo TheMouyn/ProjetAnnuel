@@ -24,12 +24,12 @@ if (!isset($_SESSION['idUser'])) {
              $lienBac = "bacIndiv.php?" . $favoris['id_bacterie'];
              echo <<<HTML
             <tr>
-                <td>
+                <td style="padding: 20px;">
                     <a href="$lienBac">
                         <p> {$favoris['genre_bacterie']} {$favoris['espece_bacterie']} {$favoris['serovar_bacterie']}</p>
                     </a>
                 </td>
-                <td>
+                <td style="padding: 10px 20px;">
                     <a href="$lienBac">
                         <img style="height: 100px;" src="../{$favoris['LienInterneImage_bacterie']}" alt="photo de la bacterie">
                     </a>
