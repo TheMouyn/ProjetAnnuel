@@ -19,6 +19,8 @@ if(!empty($_POST)) {
              $_SESSION['idUser'] = $infoUser[0]['id_user'];
              $_SESSION['estAdmin'] = $infoUser[0]['estProfessionnel_user'];
              $_SESSION['photo'] = $infoUser[0]['lienInternePhoto_user'];
+             $_SESSION['nom'] = $infoUser[0]['nom_user'];
+             $_SESSION['prenom'] = $infoUser[0]['prenom_user'];
              header('location:accueil.php');
           } else {
               $errorMsg = "Votre email n'a pas été validée, veuillez le valider puis vous connecter";

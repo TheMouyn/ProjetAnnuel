@@ -13,9 +13,13 @@ session_start();
          ?>
 
          <?php
-          $lienPhoto = '../' . $_SESSION['photo'];
-          echo "<img class=\"photoProfil\" src=\"$lienPhoto\" alt='photo utilisateur'>";
-          ?>
+         if ($_SESSION['photo'] !== null) {
+            $lienPhoto = '../' . $_SESSION['photo'];
+            echo "<img class=\"photoProfil\" src=\"$lienPhoto\" alt='photo utilisateur'>";
+         } else{
+            echo "<p style='text-align: center; width: 100%; font-weight: bold;'>{$_SESSION['prenom']} {$_SESSION['nom']}</p>";
+         }
+         ?>
 
           <a href="../page/accueil.php" class="button one">
               <img src="../style/img/house.svg" alt="">
@@ -56,8 +60,12 @@ session_start();
       if ($_SESSION['estAdmin'] == 0):
          ?>
          <?php
-         $lienPhoto = '../' . $_SESSION['photo'];
-         echo "<img class=\"photoProfil\" src=\"$lienPhoto\" alt='photo utilisateur'>";
+         if ($_SESSION['photo'] !== null) {
+            $lienPhoto = '../' . $_SESSION['photo'];
+            echo "<img class=\"photoProfil\" src=\"$lienPhoto\" alt='photo utilisateur'>";
+         } else{
+            echo "<p style='text-align: center; width: 100%; font-weight: bold;'>{$_SESSION['prenom']} {$_SESSION['nom']}</p>";
+         }
          ?>
           <a href="../page/accueil.php" class="button one">
               <img src="../style/img/house.svg" alt="">
@@ -86,7 +94,6 @@ session_start();
       ?>
 
 
-
    <?php
    // si on n'est pas connecté
    else:
@@ -103,7 +110,6 @@ session_start();
            <img src="../style/img/login.svg" alt="">
            <div class="textelien">Connexion</div>
        </a>
-
 
 
    <?php

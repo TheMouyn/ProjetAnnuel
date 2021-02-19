@@ -33,7 +33,6 @@ if (isset($prenomUser, $nomUser, $ddnUser, $passwordUser, $passwordConfirmUser, 
 
       // redirection si est professionnel après insertion en bdd
       // TODO: génération du mail pour la vérification (cf mail Dominique GENIET)
-      //TODO: modification du nav pour que la photo s'affiche ou alors nom prénom
 
       // ajout en base de donnée
       $bdd = connect();
