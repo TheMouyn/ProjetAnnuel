@@ -188,3 +188,13 @@ function favorisUser($idUser):array {
    ]);
    return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
+
+function typesEtude():array {
+   // renvoi tous les types d'étude de la base de donnée
+   $bdd=connect();
+   $query = $bdd->prepare('SELECT * FROM bcp__typeetude');
+   $query->execute();
+
+   return ($query->fetchAll(PDO::FETCH_COLUMN));
+
+}
