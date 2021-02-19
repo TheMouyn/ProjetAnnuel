@@ -49,6 +49,8 @@ if (isset($prenomUser, $nomUser, $ddnUser, $passwordUser, $passwordConfirmUser, 
       $successMsg = 'Votre compte à bien été créé, un mail vous a été envoyé pour valider votre compte';
 
       if ($estProfessionnelUser == 1){
+          session_start();
+          $_SESSION['mailCreaUser'] = $mailUser;
           header('Location:ajoutJustificatif.php');
       }
     }
