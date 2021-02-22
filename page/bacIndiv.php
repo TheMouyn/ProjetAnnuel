@@ -2,7 +2,7 @@
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
-$bacBDD = uneBacterie($_SERVER['QUERY_STRING']);
+$bacBDD = uneBacterie($_GET['idBac']);
 
 if (!isset($bacBDD[0])){
     header('Location:errorBacIndiv.php');
@@ -31,6 +31,24 @@ if($bacterie['visible'] == 0){
    die();
 }
 
+session_start();
+
+if (isset($_GET['switchFavoris'], $_SESSION['idUser'])) {
+    if ($_GET['switchFavoris'] == 1) {
+        //si switchFavoris = 1 -> la bactérie est dans la liste de favoris, il faut donc la retirer
+        supprFavoris($_SESSION['idUser'], $bacterie['id']);
+        header("Location:bacIndiv.php?idBac={$bacterie['id']}");
+        die();
+    } else {
+        //si switchFavoris = 0 -> la bactérie n'est pas dans la liste de favoris, il faut donc l'ajouter
+        addFavoris($_SESSION['idUser'], $bacterie['id']);
+        header("Location:bacIndiv.php?idBac={$bacterie['id']}");
+        die();
+
+    }
+}
+session_write_close();
+
 
 $nomBac = $bacterie['genre'] . ' ' . $bacterie['espece'] . ' ' . $bacterie['serotype'];
 
@@ -38,9 +56,31 @@ $titreOnglet = "Bactépédia - $nomBac";
 $titrePage = "$nomBac";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
-
+session_start();
 ?>
 <div class="contenu">
+    <div style="float: right; margin-bottom: 20px;">
+        <?php
+        // les bouton d'action si on est connecté
+        if (isset($_SESSION['idUser'])){
+            if ($_SESSION['estAdmin'] == 0){
+                // si l'utilisateur n'est pas admin -> favoris (jaune/blanc), asavoir(rouge/blanc)
+                $estFav = estFavoris($_SESSION['idUser'], $bacterie['id']);
+                if ($estFav){
+                    $imageFavoris = '<img src="../style/img/favorisJaune.svg" alt="étoile jaune" style="width: 50px;">';
+                } else {
+                    $imageFavoris = '<img src="../style/img/favoris.svg" alt="étoile vide" style="width: 50px;">';
+                }
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchFavoris=$estFav\">$imageFavoris</a> ";
+
+                // TODO: Bouton à savoir à faire mais 3 états : pas dans liste, pas connu, connu
+            }
+        }
+        ?>
+    </div>
+    <div style="clear: both;"></div>
+
+
     <img class="imgIndiv" src="../<?= $bacterie['photo'] ?>" alt="Photo microscope de la bactérie">
 
     <p>Nom genre : <?= $bacterie['genre'] ?></p>

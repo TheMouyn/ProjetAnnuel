@@ -182,7 +182,7 @@ function userExiste($mailUser){
 function favorisUser($idUser):array {
    // récupère les favoris d'un utilisateur qui sont visibles
    $bdd = connect();
-   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie FROM bcp__bacterie JOIN bcp__favoris USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1;');
+   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie FROM bcp__bacterie JOIN bcp__favoris USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1 ORDER BY genre_bacterie ASC;;');
    $query->execute([
       'idUser' => $idUser
    ]);
@@ -199,10 +199,36 @@ function typesEtude():array {
 
 }
 
-function suprFavoris($idUser, $idBac){
+function supprFavoris($idUser, $idBac){
     // permet de supprimer un favoris grâce à un id bactérie et un id user
     $bdd = connect();
-    $query = $bdd->prepare('DELETE FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac LIMIT 1;');
+    $query = $bdd->prepare('DELETE FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+}
+
+function estFavoris($idUser, $idBac){
+    // permet savoir si une bactérie est dans les favoris d'un utilisateur
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+
+    if(empty($query->fetchAll())){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function addFavoris($idUser, $idBac){
+    // permet d'ajouter un favoris grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('INSERT INTO bcp__favoris(id_bacterie, id_user) VALUES (:idBac, :idUser);');
     $query->execute([
         'idUser' => $idUser,
         'idBac' => $idBac
@@ -212,14 +238,14 @@ function suprFavoris($idUser, $idBac){
 function aSavoirUser($idUser):array {
     // récupère les a savoir d'un utilisateur qui sont visibles
     $bdd = connect();
-    $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie, connu_aSavoir FROM bcp__bacterie JOIN bcp__asavoir USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1;');
+    $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie, connu_aSavoir FROM bcp__bacterie JOIN bcp__asavoir USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1 ORDER BY genre_bacterie ASC;;');
     $query->execute([
         'idUser' => $idUser
     ]);
     return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
 
-function suprASavoir($idUser, $idBac){
+function supprASavoir($idUser, $idBac){
     // permet de supprimer une bactérie à savoir  grâce à un id bactérie et un id user
     $bdd = connect();
     $query = $bdd->prepare('DELETE FROM bcp__asavoir WHERE id_user = :idUser AND id_bacterie = :idBac LIMIT 1;');
@@ -238,3 +264,21 @@ function switchASavoir($idUser, $idBac){
         'idBac' => $idBac
     ]);
 }
+
+
+//function estASavoir($idUser, $idBac){
+//    // permet savoir si une bactérie est dans les a savoir d'un utilisateur
+//    $bdd = connect();
+//    $query = $bdd->prepare('SELECT  FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac;');
+//    $query->execute([
+//        'idUser' => $idUser,
+//        'idBac' => $idBac
+//    ]);
+//
+//    if(empty($query->fetchAll())){
+//        return false;
+//    } else {
+//        return true;
+//    }
+//}
+

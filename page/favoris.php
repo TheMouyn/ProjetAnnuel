@@ -11,7 +11,7 @@ if (!isset($_SESSION['idUser'])) {
 // suppression en BDD du favoris et redirection sur la même page
 if (isset($_GET['toDel'])) {
     $toDel = (int)$_GET['toDel'];
-    suprFavoris($_SESSION['idUser'], $toDel);
+    supprFavoris($_SESSION['idUser'], $toDel);
     header('Location:favoris.php');
     die();
 }

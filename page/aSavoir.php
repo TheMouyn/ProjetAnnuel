@@ -11,7 +11,7 @@ if (!isset($_SESSION['idUser'])) {
 // suppression en BDD du a savoir et redirection sur la même page
 if (isset($_GET['toDel'])) {
     $toDel = (int)$_GET['toDel'];
-    suprASavoir($_SESSION['idUser'], $toDel);
+    supprASavoir($_SESSION['idUser'], $toDel);
     header('Location:aSavoir.php');
     die();
 }
