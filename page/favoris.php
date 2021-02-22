@@ -42,7 +42,7 @@ HTML;
 
 
        ?>
-
+    </table>
 
 </div>
 
