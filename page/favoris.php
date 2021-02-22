@@ -1,36 +1,39 @@
 <?php
-$titreOnglet = "Bactépédia - Mes favoris";
-$titrePage = "Page d'Accueil - Mes favoris";
-require_once '../elements/header.php';
-require_once '../elements/nav.php';
 require_once '../function/function.php';
+require_once '../function/miseEnPage.php';
 
-// permet la redirection si on n'est pas connecté
 session_start();
+// permet la redirection si on n'est pas connecté
 if (!isset($_SESSION['idUser'])) {
-   header('location:login.php');
+    header('location:login.php');
 }
 
 // suppression en BDD du favoris et redirection sur la même page
-if (isset($_GET['toDel'])){
-    $toDel = (int) $_GET['toDel'];
+if (isset($_GET['toDel'])) {
+    $toDel = (int)$_GET['toDel'];
     suprFavoris($_SESSION['idUser'], $toDel);
     header('Location:favoris.php');
     die();
 }
+session_write_close();
+
+$titreOnglet = "Bactépédia - Mes favoris";
+$titrePage = "Mes favoris";
+require_once '../elements/header.php';
+require_once '../elements/nav.php';
 
 ?>
 <div class="contenu">
 
     <table style="margin-left: 150px;">
-       <?php
-       $listeFavoris = favorisUser($_SESSION['idUser']);
+        <?php
+        $listeFavoris = favorisUser($_SESSION['idUser']);
 
 
-       foreach ($listeFavoris as $favoris) {
-          if ($favoris['visible_bacterie'] == 1) {
-             $lienBac = "bacIndiv.php?" . $favoris['id_bacterie'];
-             echo <<<HTML
+        if (!empty($listeFavoris)) {
+            foreach ($listeFavoris as $favoris) {
+                $lienBac = "bacIndiv.php?" . $favoris['id_bacterie'];
+                echo <<<HTML
             <tr>
                 <td style="padding: 20px;">
                     <a href="$lienBac">
@@ -49,13 +52,18 @@ if (isset($_GET['toDel'])){
                 </td>
             </tr>
 HTML;
-          }
+            }
+        }
 
-       }
 
-
-       ?>
+        ?>
     </table>
+
+    <?php
+    if (empty($listeFavoris)){
+        echo message("Vous n'avez aucunes bactéries en favoris", 'msg-error');
+    }
+    ?>
 
 </div>
 

@@ -180,9 +180,9 @@ function userExiste($mailUser){
 }
 
 function favorisUser($idUser):array {
-   // récupère les favoris d'un utilisateur
+   // récupère les favoris d'un utilisateur qui sont visibles
    $bdd = connect();
-   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie FROM bcp__bacterie JOIN bcp__favoris USING(id_bacterie) WHERE id_user = :idUser;');
+   $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie FROM bcp__bacterie JOIN bcp__favoris USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1;');
    $query->execute([
       'idUser' => $idUser
    ]);
