@@ -37,6 +37,10 @@ session_start();
               <img src="../style/img/favoris.svg" alt="">
               <div class="textelien">Mes favoris</div>
           </a>
+          <a href="../page/aSavoir.php" class="button one">
+              <img src="../style/img/coeurVide.svg" alt="">
+              <div class="textelien">Bactéries à savoir</div>
+          </a>
           <a href="#" class="button one">
               <img src="../style/img/database.svg" alt="">
               <div class="textelien">Gérer les données</div>
@@ -82,6 +86,10 @@ session_start();
           <a href="../page/favoris.php" class="button one">
               <img src="../style/img/favoris.svg" alt="">
               <div class="textelien">Mes favoris</div>
+          </a>
+          <a href="../page/aSavoir.php" class="button one">
+              <img src="../style/img/coeurVide.svg" alt="">
+              <div class="textelien">Bactéries à savoir</div>
           </a>
           <a href="../page/disconect.php" class="button one">
               <img src="../style/img/logout.svg" alt="">

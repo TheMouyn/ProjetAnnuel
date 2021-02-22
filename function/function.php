@@ -208,3 +208,33 @@ function suprFavoris($idUser, $idBac){
         'idBac' => $idBac
     ]);
 }
+
+function aSavoirUser($idUser):array {
+    // récupère les a savoir d'un utilisateur qui sont visibles
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT id_bacterie, genre_bacterie, espece_bacterie, serovar_bacterie, LienInterneImage_bacterie, visible_bacterie, connu_aSavoir FROM bcp__bacterie JOIN bcp__asavoir USING(id_bacterie) WHERE id_user = :idUser AND visible_bacterie=1;');
+    $query->execute([
+        'idUser' => $idUser
+    ]);
+    return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
+
+function suprASavoir($idUser, $idBac){
+    // permet de supprimer une bactérie à savoir  grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('DELETE FROM bcp__asavoir WHERE id_user = :idUser AND id_bacterie = :idBac LIMIT 1;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+}
+
+function switchASavoir($idUser, $idBac){
+    // permet de modifier l'état connu d'une bactérie à savoir grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__asavoir SET connu_aSavoir = !connu_aSavoir WHERE id_user = :idUser AND id_bacterie = :idBac LIMIT 1;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+}

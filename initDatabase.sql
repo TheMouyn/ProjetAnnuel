@@ -45,7 +45,7 @@ CREATE TABLE bcp__favoris(
 CREATE TABLE bcp__asavoir(
     id_bacterie INTEGER NOT NULL,
     id_user INTEGER NOT NULL,
-    Connu_aSavoir BOOLEAN NOT NULL -- True si bacterie connue, false si non
+    connu_aSavoir BOOLEAN NOT NULL -- True si bacterie connue, false si non
 );
 
 CREATE TABLE bcp__forme(
