@@ -41,7 +41,7 @@ require_once '../elements/nav.php';
 
         if (!empty($listeASavoir)) {
             foreach ($listeASavoir as $aSavoir) {
-                $lienBac = "bacIndiv.php?" . $aSavoir['id_bacterie'];
+                $lienBac = "bacIndiv.php?idBac=" . $aSavoir['id_bacterie'];
                 if ($aSavoir['connu_aSavoir'] == 0) {
                     $imageCoeur = '<img src="../style/img/coeurVide.svg" alt="logo coeur vide" style="width: 30px;">';
                 } else {

@@ -32,7 +32,7 @@ require_once '../elements/nav.php';
 
         if (!empty($listeFavoris)) {
             foreach ($listeFavoris as $favoris) {
-                $lienBac = "bacIndiv.php?" . $favoris['id_bacterie'];
+                $lienBac = "bacIndiv.php?idBac=" . $favoris['id_bacterie'];
                 echo <<<HTML
             <tr>
                 <td style="padding: 20px;">
