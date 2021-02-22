@@ -11,6 +11,14 @@ if (!isset($_SESSION['idUser'])) {
    header('location:login.php');
 }
 
+// suppression en BDD du favoris et redirection sur la même page
+if (isset($_GET['toDel'])){
+    $toDel = (int) $_GET['toDel'];
+    suprFavoris($_SESSION['idUser'], $toDel);
+    header('Location:favoris.php');
+    die();
+}
+
 ?>
 <div class="contenu">
 
@@ -32,6 +40,11 @@ if (!isset($_SESSION['idUser'])) {
                 <td style="padding: 10px 20px;">
                     <a href="$lienBac">
                         <img style="height: 100px;" src="../{$favoris['LienInterneImage_bacterie']}" alt="photo de la bacterie">
+                    </a>
+                </td>
+                <td>
+                    <a href="favoris.php?toDel={$favoris['id_bacterie']}">
+                        <img src="../style/img/delete.svg" alt="logo poubelle" style="width: 30px;">
                     </a>
                 </td>
             </tr>

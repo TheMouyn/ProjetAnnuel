@@ -198,3 +198,13 @@ function typesEtude():array {
    return ($query->fetchAll(PDO::FETCH_COLUMN));
 
 }
+
+function suprFavoris($idUser, $idBac){
+    // permet de supprimer un favoris grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('DELETE FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac LIMIT 1;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+}
