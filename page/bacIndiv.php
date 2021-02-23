@@ -59,21 +59,24 @@ require_once '../elements/nav.php';
 session_start();
 ?>
 <div class="contenu">
-    <div style="float: right; margin-bottom: 20px;">
+    <div style="float: right; margin-bottom: 20px; display:flex;">
         <?php
         // les bouton d'action si on est connecté
         if (isset($_SESSION['idUser'])){
-            if ($_SESSION['estAdmin'] == 0){
-                // si l'utilisateur n'est pas admin -> favoris (jaune/blanc), asavoir(rouge/blanc)
-                $estFav = estFavoris($_SESSION['idUser'], $bacterie['id']);
-                if ($estFav){
-                    $imageFavoris = '<img src="../style/img/favorisJaune.svg" alt="étoile jaune" style="width: 50px;">';
-                } else {
-                    $imageFavoris = '<img src="../style/img/favoris.svg" alt="étoile vide" style="width: 50px;">';
-                }
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchFavoris=$estFav\">$imageFavoris</a> ";
+            // si l'utilisateur n'est pas admin -> favoris (jaune/blanc), asavoir(rouge/blanc)
+            $estFav = estFavoris($_SESSION['idUser'], $bacterie['id']);
+            if ($estFav){
+                $imageFavoris = '<img src="../style/img/favorisJaune.svg" alt="étoile jaune" style="width: 50px; margin: 0px 10px;">';
+            } else {
+                $imageFavoris = '<img src="../style/img/favoris.svg" alt="étoile vide" style="width: 50px; margin: 0px 10px;">';
+            }
+            echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchFavoris=$estFav\">$imageFavoris</a> ";
 
-                // TODO: Bouton à savoir à faire mais 3 états : pas dans liste, pas connu, connu
+            // TODO: Bouton à savoir à faire mais 3 états : pas dans liste, pas connu, connu
+
+            if ($_SESSION['estAdmin'] == 1){
+                // affiche un lien crayon vers l'édition de bactérie
+                echo "<a href=\"\"><img src='../style/img/crayon.svg' alt='logo crayon' style=\"width: 50px; margin: 0px 10px;\"></a>";
             }
         }
         ?>
