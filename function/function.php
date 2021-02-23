@@ -297,3 +297,12 @@ function estASavoir($idUser, $idBac){
     }
 }
 
+function ajoutJustifBDD($mailUser, $lien){
+    // permet de modifier l'état connu d'une bactérie à savoir grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__user SET lienInterneJustificatif_user = :lien WHERE email_user = :mailUser;');
+    $query->execute([
+        'lien' => $lien,
+        'mailUser' => $mailUser
+    ]);
+}

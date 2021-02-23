@@ -30,6 +30,7 @@ if (isset($_FILES['fichier'], $mailUser) and ($_FILES['fichier']['error'] == 0))
          session_destroy();
          unset($_SESSION);
          $successMsg = "Votre justificatif à été enregistré, il sera traité dans les meilleurs délais. Veuillez valider votre compte grâce au mail que vous avez reçu.";
+          ajoutJustifBDD($mailUser, '/upload/justificatif/' . $nomFichier);
       }
    } else {
       $errorMsg = "Le fichier n'est pas un pdf";
