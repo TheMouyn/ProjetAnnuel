@@ -245,6 +245,17 @@ function aSavoirUser($idUser):array {
     return ($query->fetchAll(PDO::FETCH_ASSOC));
 }
 
+function addASavoir($idUser, $idBac){
+    // permet de supprimer une bactérie à savoir  grâce à un id bactérie et un id user
+    $bdd = connect();
+    $query = $bdd->prepare('INSERT INTO bcp__asavoir(id_bacterie, id_user, connu_aSavoir) VALUES (:idBac, :idUser, 0);');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+}
+
+
 function supprASavoir($idUser, $idBac){
     // permet de supprimer une bactérie à savoir  grâce à un id bactérie et un id user
     $bdd = connect();
@@ -266,19 +277,23 @@ function switchASavoir($idUser, $idBac){
 }
 
 
-//function estASavoir($idUser, $idBac){
-//    // permet savoir si une bactérie est dans les a savoir d'un utilisateur
-//    $bdd = connect();
-//    $query = $bdd->prepare('SELECT  FROM bcp__favoris WHERE id_user = :idUser AND id_bacterie = :idBac;');
-//    $query->execute([
-//        'idUser' => $idUser,
-//        'idBac' => $idBac
-//    ]);
-//
-//    if(empty($query->fetchAll())){
-//        return false;
-//    } else {
-//        return true;
-//    }
-//}
+function estASavoir($idUser, $idBac){
+    // permet savoir si une bactérie est dans les a savoir d'un utilisateur return 0 si pas dans la table 1 si oui mais connu = 0 et 2 si oui et connu = 1
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__asavoir WHERE id_user = :idUser AND id_bacterie = :idBac;');
+    $query->execute([
+        'idUser' => $idUser,
+        'idBac' => $idBac
+    ]);
+
+    $reponse = $query->fetchAll();
+
+    if(empty($reponse)){
+        return 0;
+    } elseif ($reponse[0]['connu_aSavoir'] == 0) {
+        return 1;
+    } elseif ($reponse[0]['connu_aSavoir'] == 1){
+        return 2;
+    }
+}
 
