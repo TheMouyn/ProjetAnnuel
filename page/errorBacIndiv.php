@@ -1,6 +1,6 @@
 <?php
 $titreOnglet = "Bactépédia - Bactérie introuvable";
-$titrePage = "Page d'Accueil - Bactérie introuvable";
+$titrePage = "Bactérie introuvable";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 require_once '../function/miseEnPage.php';

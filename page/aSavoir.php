@@ -27,7 +27,7 @@ if (isset($_GET['switch'])) {
 session_write_close();
 
 $titreOnglet = "Bactépédia - Mes favoris";
-$titrePage = "Mes favoris";
+$titrePage = "Mes bactéries à savoir";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 

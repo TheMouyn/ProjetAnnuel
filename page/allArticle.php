@@ -1,6 +1,6 @@
 <?php
 $titreOnglet = "Bactépédia - Articles";
-$titrePage = "Page d'Accueil - Tous les articles";
+$titrePage = "Tous les articles";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 require_once '../function/function.php';

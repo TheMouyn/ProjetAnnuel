@@ -12,7 +12,7 @@ if (isset($_SESSION['idUser'])){
 
 
 $titreOnglet = "Bactépédia - Déconnexion";
-$titrePage = "Page d'Accueil - Déconnexion";
+$titrePage = "Déconnexion";
 require_once '../elements/header.php';
 require_once '../elements/nav.php';
 require_once '../function/function.php';
