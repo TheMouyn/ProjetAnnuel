@@ -306,3 +306,21 @@ function ajoutJustifBDD($mailUser, $lien){
         'mailUser' => $mailUser
     ]);
 }
+
+function openNewTab($lien){
+    return <<<HTML
+    <script type="text/javascript">
+        window.open('$lien', '_blank');
+    </script>
+HTML;
+}
+
+function switchValideMail($idUser){
+    // permet de modifier l'état de mail validé d'un utilisateur
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__user SET emailValide_user = 1 WHERE id_user = :idUser;');
+    $query->execute([
+        'idUser' => $idUser,
+    ]);
+
+}

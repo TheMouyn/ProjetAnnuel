@@ -47,12 +47,15 @@ if (isset($prenomUser, $nomUser, $ddnUser, $passwordUser, $passwordConfirmUser, 
          'typeEtude' => $typeEtudeUser
       ]);
       $successMsg = 'Votre compte à bien été créé, un mail vous a été envoyé pour valider votre compte';
+       session_start();
+       $_SESSION['mailCreaUser'] = $mailUser;
+       session_write_close();
 
-      if ($estProfessionnelUser == 1){
-          session_start();
-          $_SESSION['mailCreaUser'] = $mailUser;
+       if ($estProfessionnelUser == 1){
           header('Location:ajoutJustificatif.php');
-      }
+      } else {
+           echo openNewTab('mailValideMail.php');
+       }
     }
 }
 
