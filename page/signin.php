@@ -46,7 +46,7 @@ if (isset($prenomUser, $nomUser, $ddnUser, $passwordUser, $passwordConfirmUser, 
          'estPro' => $estProfessionnelUser,
          'typeEtude' => $typeEtudeUser
       ]);
-      $successMsg = 'Votre compte à bien été créé, un mail vous a été envoyé pour valider votre compte';
+      $successMsg = 'Votre compte à bien été créé, un mail vous a été envoyé pour valider votre compte (voir pop-up).';
        session_start();
        $_SESSION['mailCreaUser'] = $mailUser;
        session_write_close();
