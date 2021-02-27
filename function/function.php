@@ -362,3 +362,43 @@ function ajoutConsultation($idBac){
     ]);
 
 }
+
+
+function rechercheUnMotBacterie($recherche){
+    // permet de rechercher dans la BDD et dans les deux tables (genre et espèce)
+    $bdd = connect();
+    $reponse = [];
+    $queryGenre = $bdd->prepare('SELECT * FROM bcp__bacterie WHERE genre_bacterie LIKE :nomGenre;');
+    $queryGenre->execute([
+        'nomGenre' => '%' . $recherche . '%'
+    ]);
+    $reponseGenre = $queryGenre->fetchAll(PDO::FETCH_ASSOC);
+    if (!empty($reponseGenre)){
+        $reponse[] = $reponseGenre;
+    }
+
+    $queryEspece = $bdd->prepare('SELECT * FROM bcp__bacterie WHERE espece_bacterie LIKE :nomEspece;');
+    $queryEspece->execute([
+        'nomEspece' => '%' . $recherche . '%'
+    ]);
+    $reponseEspece = $queryEspece->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!empty($reponseEspece)){
+        $reponse[] = $reponseEspece;
+    }
+
+    return $reponse;
+
+}
+
+
+function rechercheDeuxMotsBacterie($genre, $espece){
+    // permet de rechercher dans la BDD et dans les deux tables (genre et espèce) avec les deux mots
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__bacterie WHERE genre_bacterie LIKE :nomGenre AND espece_bacterie LIKE :nomEspece;');
+    $query->execute([
+        'nomGenre' => '%' . $genre . '%',
+        'nomEspece' => '%' . $espece . '%'
+    ]);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
