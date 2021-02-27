@@ -179,6 +179,22 @@ function userExiste($mailUser){
 
 }
 
+function userIdExiste($idUser){
+    // id existe dans la bdd : revois null ou le tableau avec les informations
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__user WHERE id_user = :idUser LIMIT 1;');
+    $query->execute([
+        'idUser' => $idUser
+    ]);
+    $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!empty($resultat[0])){
+        return $resultat;
+    } else {
+        return null;
+    }
+}
+
 function favorisUser($idUser):array {
    // récupère les favoris d'un utilisateur qui sont visibles
    $bdd = connect();
@@ -321,6 +337,17 @@ function switchValideMail($idUser){
     $query = $bdd->prepare('UPDATE bcp__user SET emailValide_user = 1 WHERE id_user = :idUser;');
     $query->execute([
         'idUser' => $idUser,
+    ]);
+
+}
+
+function updatePassword($password, $idUser){
+    // permet de modifier le mot de passe de l'utilisateur avec son id
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__user SET password_user = :mdp WHERE id_user = :idUser LIMIT 1;');
+    $query->execute([
+        'idUser' => $idUser,
+        'mdp' => $password
     ]);
 
 }

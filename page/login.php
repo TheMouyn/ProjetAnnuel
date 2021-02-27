@@ -52,6 +52,7 @@ require_once '../elements/nav.php';
                 <input class="login-item" type="email" name="mail" placeholder="Adresse email" required <?php if (isset($mailUser)){echo "value=\"$mailUser\"";} ?>>
                 <input class="login-item" type="password" name="password" placeholder="Mot de passe" required>
                 <button class="login-item" type="submit">Se connecter</button>
+                <p style="width: 100%; text-align: center; text-decoration: blue"><a href="askNewPassword.php">Mot de passe oublié</a></p>
                 <p style="width: 100%; text-align: center; text-decoration: blue"><a href="signin.php">Se créer un compte</a></p>
             </form>
         </div>
