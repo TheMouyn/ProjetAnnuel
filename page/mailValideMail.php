@@ -3,20 +3,24 @@ require_once '../function/function.php';
 require_once '../function/miseEnPage.php';
 
 session_start();
-$mailUser = $_SESSION['mailCreaUser'];
-$infoUser = userExiste($mailUser);
-$user = [
-    'id' => $infoUser[0]['id_user'],
-    'nom' => $infoUser[0]['nom_user'],
-    'prenom' => $infoUser[0]['prenom_user'],
-    'ddn' => $infoUser[0]['ddn_user'],
-    'mail' => $infoUser[0]['email_user'],
-    'estPro' => $infoUser[0]['estProfessionnel_user'],
-    'etude' => $infoUser[0]['nom_typeEtude'],
-    'justif' => $infoUser[0]['lienInterneJustificatif_user']
-];
-$lien = "valideMail.php?idUser={$user['id']}";
-
+if (isset($_SESSION['mailCreaUser'])) {
+    $mailUser = $_SESSION['mailCreaUser'];
+    $infoUser = userExiste($mailUser);
+    $user = [
+        'id' => $infoUser[0]['id_user'],
+        'nom' => $infoUser[0]['nom_user'],
+        'prenom' => $infoUser[0]['prenom_user'],
+        'ddn' => $infoUser[0]['ddn_user'],
+        'mail' => $infoUser[0]['email_user'],
+        'estPro' => $infoUser[0]['estProfessionnel_user'],
+        'etude' => $infoUser[0]['nom_typeEtude'],
+        'justif' => $infoUser[0]['lienInterneJustificatif_user']
+    ];
+    $lien = "valideMail.php?idUser={$user['id']}";
+} else {
+    header('Location:accueil.php');
+    die();
+}
 
 ?>
 <html lang="fr">
