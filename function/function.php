@@ -351,3 +351,14 @@ function updatePassword($password, $idUser){
     ]);
 
 }
+
+
+function ajoutConsultation($idBac){
+    // permet de modifier le mot de passe de l'utilisateur avec son id
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__bacterie SET nbConsultation_bacterie = nbConsultation_bacterie+1 WHERE id_bacterie = :idBac;');
+    $query->execute([
+        'idBac' => $idBac
+    ]);
+
+}

@@ -31,6 +31,9 @@ if($bacterie['visible'] == 0){
    die();
 }
 
+// permet d'ajouter 1 au nombre de consultation
+ajoutConsultation($bacterie['id']);
+
 session_start();
 
 if (isset($_GET['switchFavoris'], $_SESSION['idUser'])) {
