@@ -222,8 +222,8 @@ a.button.one:hover:before, a.button.one:hover:after {
 }
 
 .tableCarac thead,.tableCarac tfoot {
-    background-color: #333;
-    color: #fff;
+    background-color: #9df6fd;
+    color: black;
 }
 
 .boutonBacIndiv{
