@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection DuplicatedCode */
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';
 
