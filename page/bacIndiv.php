@@ -136,7 +136,7 @@ session_start();
    }
    ?>
 
-    <p>Température optimale de culture : <?= $bacterie['forme'] ?></p>
+    <p>Forme de la bactérie : <?= $bacterie['forme'] ?></p>
 
     <p>Gram : <span style="<?php if ($bacterie['gram'] === 'Positif'){echo 'color: darkviolet;';}elseif($bacterie['gram'] === 'Negatif'){echo 'color: deeppink;';} ?>"><?= $bacterie['gram']?> </span></p>
 
