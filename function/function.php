@@ -363,6 +363,16 @@ function ajoutConsultation($idBac){
 
 }
 
+function ajoutRecherche($idBac){
+    // permet d'ajouter un au nombre de fois où la bactérie est recherchée
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__bacterie SET nbRecherche_bacterie = nbRecherche_bacterie+1 WHERE id_bacterie = :idBac;');
+    $query->execute([
+        'idBac' => $idBac
+    ]);
+
+}
+
 
 function rechercheUnMotBacterie($recherche){
     // permet de rechercher dans la BDD et dans les deux tables (genre et espèce)
