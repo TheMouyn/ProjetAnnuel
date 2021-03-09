@@ -47,6 +47,7 @@ if (isset($_GET['recherche'])){
     }
 
 
+    //TODO: prise en compte des page quand nb résultat supérieur à 10
 
 }
 
@@ -81,23 +82,24 @@ require_once '../elements/nav.php';
             <?php
             if (!empty($tabResultat)) {
                 foreach ($tabResultat as $ligne) {
-                    if ($ligne['gram_bacterie'] == "Positif"){
-                        $color = "color: darkviolet;";
-                    } elseif ($ligne['gram_bacterie'] == "Negatif"){
-                        $color = "color: deeppink;";
-                    } else {
-                        $color ="color: black;";
-                    }
-                    $image = null;
-                    if ($ligne['LienInterneImage_bacterie'] !== null){
-                        $image = "<img src=\"../{$ligne['LienInterneImage_bacterie']}\" alt=\"\" style=\"height: 100px;\">";
-                    }
+                    if ($ligne['visible_bacterie'] == 1) {
+                        if ($ligne['gram_bacterie'] == "Positif") {
+                            $color = "color: darkviolet;";
+                        } elseif ($ligne['gram_bacterie'] == "Negatif") {
+                            $color = "color: deeppink;";
+                        } else {
+                            $color = "color: black;";
+                        }
+                        $image = null;
+                        if ($ligne['LienInterneImage_bacterie'] !== null) {
+                            $image = "<img src=\"../{$ligne['LienInterneImage_bacterie']}\" alt=\"\" style=\"height: 100px;\">";
+                        }
 
-                    // permet d'ajouter 1 au nombre de recherche
-                    ajoutRecherche($ligne['id_bacterie']);
+                        // permet d'ajouter 1 au nombre de recherche
+                        ajoutRecherche($ligne['id_bacterie']);
 
 
-                echo <<<HTML
+                        echo <<<HTML
    
                     <tr>
                         
@@ -115,7 +117,7 @@ require_once '../elements/nav.php';
                     </tr>
 
 HTML;
-
+                    }
                 }
             }
             ?>
