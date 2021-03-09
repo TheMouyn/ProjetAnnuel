@@ -118,7 +118,7 @@ session_start();
 
             if ($_SESSION['estAdmin'] == 1){
                 // affiche un lien crayon vers l'édition de bactérie
-                echo "<a href=\"\"><img src='../style/img/crayon.svg' alt='logo crayon' style=\"width: 50px; margin: 0px 10px;\"></a>";
+                echo "<a href=\"editBac.php?idBac={$bacterie['id']}\"><img src='../style/img/crayon.svg' alt='logo crayon' style=\"width: 50px; margin: 0px 10px;\"></a>";
             }
         }
         ?>
