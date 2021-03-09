@@ -93,6 +93,10 @@ require_once '../elements/nav.php';
                         $image = "<img src=\"../{$ligne['LienInterneImage_bacterie']}\" alt=\"\" style=\"height: 100px;\">";
                     }
 
+                    // permet d'ajouter 1 au nombre de recherche
+                    ajoutRecherche($ligne['id_bacterie']);
+
+
                 echo <<<HTML
    
                     <tr>
