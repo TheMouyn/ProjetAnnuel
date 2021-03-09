@@ -230,3 +230,16 @@ a.button.one:hover:before, a.button.one:hover:after {
     width: 50px;
     margin: 0px 10px;
 }
+
+.form-groupe-checkbox {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.groupe-checkbox{
+    max-height: 400px;
+    overflow: auto;
+    margin: 10px 0;
+}
