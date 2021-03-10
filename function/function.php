@@ -421,3 +421,14 @@ function rechercheDeuxMotsBacterie($genre, $espece){
     ]);
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function ficheTechniqueMilieu($idMilieu){
+    // Permet de récupérer les fiches techniques cité dans un milieu
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__fichetechnique JOIN bcp__estmensione USING(id_ficheTechnique) WHERE id_milieu = :idMilieu;');
+    $query->execute([
+        'idMilieu' => $idMilieu,
+    ]);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+
+}

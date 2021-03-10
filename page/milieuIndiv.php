@@ -125,13 +125,22 @@ HTML;
    // TODO: Lecture résultats
    ?>
 
+<div>
+    <?php
+    $ficheTech = ficheTechniqueMilieu($milieu['id']);
+    if (!empty($ficheTech[0])){
+        echo "<p>Liste des fiches techniques utile pour ce milieu : </p>";
+        echo "<ul>";
+        foreach ($ficheTech as $ligne){
+            echo "<li><a href='../{$ligne['LienInterneFichier_ficheTechnique']}' target='_blank'>{$ligne['titre_ficheTechnique']}</a></li>";
 
 
-    <!--    <pre>-->
-<!--       --><?php
-//       echo var_dump($milieuBDD);
-//       ?>
-<!--    </pre>-->
+        }
+        echo "</ul>";
+    }
+
+    ?>
+</div>
 
 
 </div>
