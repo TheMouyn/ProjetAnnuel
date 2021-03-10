@@ -94,9 +94,9 @@ session_start();
             // si l'utilisateur n'est pas admin -> favoris (jaune/blanc), asavoir(rouge/blanc)
             $estFav = estFavoris($_SESSION['idUser'], $bacterie['id']);
             if ($estFav){
-                $imageFavoris = '<img src="../style/img/favorisJaune.svg" alt="étoile jaune" class="boutonBacIndiv">';
+                $imageFavoris = '<img src="../style/img/favorisJaune.svg" title="Retirer des favoris" alt="étoile jaune" class="boutonBacIndiv">';
             } else {
-                $imageFavoris = '<img src="../style/img/favoris.svg" alt="étoile vide" class="boutonBacIndiv">';
+                $imageFavoris = '<img src="../style/img/favoris.svg" title="Ajouter aux favoris" alt="étoile vide" class="boutonBacIndiv">';
             }
             echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchFavoris=$estFav\">$imageFavoris</a> ";
 
@@ -105,20 +105,20 @@ session_start();
 
             if ($estASavoir == 0){
                 // pour ajouter dans la table
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=0\"><img src='../style/img/coeurPlus.svg' alt='logo coeur plus' class=\"boutonBacIndiv\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=0\"><img src='../style/img/coeurPlus.svg' title='Ajout aux bactéries à savoir' alt='logo coeur plus' class=\"boutonBacIndiv\"></a>";
             } elseif ($estASavoir == 1) {
                 // pour supprimer dans la table et modifier le boolean connu
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=1\"><img src='../style/img/coeurDelete.svg' alt='logo coeur poubelle' class=\"boutonBacIndiv\"></a>";
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchASavoir=$estASavoir\"><img src='../style/img/coeurVide.svg' alt='logo coeur' class=\"boutonBacIndiv\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=1\"><img src='../style/img/coeurDelete.svg' alt='logo coeur poubelle' title='Retirer des bactéries à savoir' class=\"boutonBacIndiv\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchASavoir=$estASavoir\"><img src='../style/img/coeurVide.svg' alt='logo coeur' title='Passer la bactérie en connue' class=\"boutonBacIndiv\"></a>";
             } elseif ($estASavoir == 2) {
                 // pour supprimer dans la table et modifier le boolean connu
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=1\"><img src='../style/img/coeurDelete.svg' alt='logo coeur poubelle' class=\"boutonBacIndiv\"></a>";
-                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchASavoir=$estASavoir\"><img src='../style/img/coeurRouge.svg' alt='logo coeur rouge' class=\"boutonBacIndiv\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&addSupprASavoir=1\"><img src='../style/img/coeurDelete.svg' alt='logo coeur poubelle' title='Supprimer des bactéries à savoir' class=\"boutonBacIndiv\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&switchASavoir=$estASavoir\"><img src='../style/img/coeurRouge.svg' alt='logo coeur rouge' title='Passer la bactérie comme inconnue' class=\"boutonBacIndiv\"></a>";
             }
 
             if ($_SESSION['estAdmin'] == 1){
                 // affiche un lien crayon vers l'édition de bactérie
-                echo "<a href=\"editBac.php?idBac={$bacterie['id']}\"><img src='../style/img/crayon.svg' alt='logo crayon' style=\"width: 50px; margin: 0px 10px;\"></a>";
+                echo "<a href=\"editBac.php?idBac={$bacterie['id']}\"><img src='../style/img/crayon.svg' alt='logo crayon' title='Edtier la bactérie' style=\"width: 50px; margin: 0px 10px;\"></a>";
             }
         }
         ?>
