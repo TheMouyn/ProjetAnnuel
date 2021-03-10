@@ -29,7 +29,7 @@ session_start();
               <img src="../style/img/search.svg" alt="">
               <div class="textelien">Faire une recherche</div>
           </a>
-          <a href="#" class="button one">
+          <a href="../page/myAccount.php" class="button one">
               <img src="../style/img/account.svg" alt="">
               <div class="textelien">Mon compte</div>
           </a>
@@ -79,7 +79,7 @@ session_start();
               <img src="../style/img/search.svg" alt="">
               <div class="textelien">Faire une recherche</div>
           </a>
-          <a href="#" class="button one">
+          <a href="../page/myAccount.php" class="button one">
               <img src="../style/img/account.svg" alt="">
               <div class="textelien">Mon compte</div>
           </a>

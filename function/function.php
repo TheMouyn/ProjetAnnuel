@@ -432,3 +432,13 @@ function ficheTechniqueMilieu($idMilieu){
     return $query->fetchAll(PDO::FETCH_ASSOC);
 
 }
+
+function ajoutphotoBDD($idUser, $lien){
+    // permet d'ajouter le lien vers une photo
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__user SET lienInternePhoto_user = :lien WHERE id_user = :id;');
+    $query->execute([
+        'lien' => $lien,
+        'id' => $idUser
+    ]);
+}
