@@ -433,12 +433,22 @@ function ficheTechniqueMilieu($idMilieu){
 
 }
 
-function ajoutphotoBDD($idUser, $lien){
+function ajoutphotoProfilBDD($idUser, $lien){
     // permet d'ajouter le lien vers une photo
     $bdd = connect();
     $query = $bdd->prepare('UPDATE bcp__user SET lienInternePhoto_user = :lien WHERE id_user = :id;');
     $query->execute([
         'lien' => $lien,
         'id' => $idUser
+    ]);
+}
+
+function ajoutphotoBacterieBDD($idBac, $lien){
+    // permet d'ajouter le lien vers une photo pour une bactérie
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__bacterie SET LienInterneImage_bacterie = :lien WHERE id_bacterie = :id;');
+    $query->execute([
+        'lien' => $lien,
+        'id' => $idBac
     ]);
 }

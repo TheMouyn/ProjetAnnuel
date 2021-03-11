@@ -32,7 +32,7 @@ if (isset($_SESSION['idUser'])){
 
             move_uploaded_file($_FILES['photo']["tmp_name"], '../upload/photoUser/' . $nomFichier);
             $successMsg = "Votre photo sera mise à jour à votre prochaine connexion.";
-            ajoutphotoBDD($infoUser[0]['id_user'], 'upload/photoUser/' . $nomFichier);
+            ajoutphotoProfilBDD($infoUser[0]['id_user'], 'upload/photoUser/' . $nomFichier);
 
 
         } else {

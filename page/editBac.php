@@ -37,7 +37,6 @@ if (isset($idBac)) {
         'visible' => $bacBDD[0]['visible_bacterie']
     ];
 
-// TODO:photo à traiter
 
     // Mise à jour de la base de donnée à partir des informations du formulaire
     // Permet de vérifier que le formulaire a bien été envoyé
@@ -209,6 +208,7 @@ require_once '../elements/nav.php';
         }
         ?>
         <p style="font-weight: bold">Modification de la bactérie numéro <?= $bacterie['id'] ?></p>
+        <a style="float: right; margin: 0 50px;" href="editPicture.php?idBac=<?= $bacterie['id'] ?>">Changer la photo de la bactérie</a>
         <form action="" method="post">
             <table>
                 <tr>
