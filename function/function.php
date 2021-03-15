@@ -325,7 +325,7 @@ function estASavoir($idUser, $idBac){
 function ajoutJustifBDD($mailUser, $lien){
     // permet d'ajouter le lien vers un justificatif
     $bdd = connect();
-    $query = $bdd->prepare('UPDATE bcp__user SET lienInterneJustificatif_user = :lien WHERE email_user = :mailUser;');
+    $query = $bdd->prepare('UPDATE bcp__user SET lienInterneJustificatif_user = :lien, justificatifValide_user = 0 WHERE email_user = :mailUser;');
     $query->execute([
         'lien' => $lien,
         'mailUser' => $mailUser
@@ -451,4 +451,12 @@ function ajoutphotoBacterieBDD($idBac, $lien){
         'lien' => $lien,
         'id' => $idBac
     ]);
+}
+
+function justificatifNonValide(){
+    // return la liste des justificatif non validé pour les comptes admin
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__user WHERE justificatifValide_user = 0');
+    $query->execute();
+    return $query->fetchAll();
 }
