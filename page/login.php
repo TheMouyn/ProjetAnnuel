@@ -15,13 +15,17 @@ if(!empty($_POST)) {
        if (password_verify($passwordUser, $infoUser[0]['password_user'])){
            // début de session
           if($infoUser[0]['emailValide_user'] == 1) {
-             session_start();
-             $_SESSION['idUser'] = $infoUser[0]['id_user'];
-             $_SESSION['estAdmin'] = $infoUser[0]['estProfessionnel_user'];
-             $_SESSION['photo'] = $infoUser[0]['lienInternePhoto_user'];
-             $_SESSION['nom'] = $infoUser[0]['nom_user'];
-             $_SESSION['prenom'] = $infoUser[0]['prenom_user'];
-             header('location:accueil.php');
+              if ($infoUser[0]['justificatifValide_user'] == 1) {
+                  session_start();
+                  $_SESSION['idUser'] = $infoUser[0]['id_user'];
+                  $_SESSION['estAdmin'] = $infoUser[0]['estProfessionnel_user'];
+                  $_SESSION['photo'] = $infoUser[0]['lienInternePhoto_user'];
+                  $_SESSION['nom'] = $infoUser[0]['nom_user'];
+                  $_SESSION['prenom'] = $infoUser[0]['prenom_user'];
+                  header('location:accueil.php');
+              } else{
+                  $errorMsg = "Votre justificatif n'a pas encore été validé, merci de réessayer plus tard.";
+              }
           } else {
               $errorMsg = "Votre email n'a pas été validée, veuillez le valider puis vous connecter";
           }
