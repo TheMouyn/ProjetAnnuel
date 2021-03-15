@@ -110,8 +110,10 @@ HTML;
            <ul>
               <?php
               foreach($bacteries as $bacterie){
-                 $lien = 'bacIndiv.php?idBac=' . $bacterie['id_bacterie'];
-                 echo "<li><a href='$lien'>{$bacterie['genre_bacterie']} {$bacterie['espece_bacterie']} {$bacterie['serovar_bacterie']}</a></li>";
+                  if($bacterie['visible_bacterie'] == 1) {
+                      $lien = 'bacIndiv.php?idBac=' . $bacterie['id_bacterie'];
+                      echo "<li><a href='$lien'>{$bacterie['genre_bacterie']} {$bacterie['espece_bacterie']} {$bacterie['serovar_bacterie']}</a></li>";
+                  }
               }
               ?>
            </ul>
