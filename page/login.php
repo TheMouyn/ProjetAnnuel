@@ -15,7 +15,7 @@ if(!empty($_POST)) {
        if (password_verify($passwordUser, $infoUser[0]['password_user'])){
            // début de session
           if($infoUser[0]['emailValide_user'] == 1) {
-              if ($infoUser[0]['justificatifValide_user'] == 1) {
+              if ($infoUser[0]['justificatifValide_user'] == 1 OR $infoUser[0]['justificatifValide_user'] == null) {
                   session_start();
                   $_SESSION['idUser'] = $infoUser[0]['id_user'];
                   $_SESSION['estAdmin'] = $infoUser[0]['estProfessionnel_user'];
