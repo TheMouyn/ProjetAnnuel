@@ -41,7 +41,7 @@ session_start();
               <img src="../style/img/coeurVide.svg" alt="">
               <div class="textelien">Bactéries à savoir</div>
           </a>
-          <a href="#" class="button one">
+          <a href="../page/adminPage.php" class="button one">
               <img src="../style/img/database.svg" alt="">
               <div class="textelien">Gérer les données</div>
           </a>
