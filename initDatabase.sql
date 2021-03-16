@@ -25,6 +25,9 @@ CREATE TABLE bcp__user(
     lienInterneJustificatif_user TEXT NULL,
     justificatifValide_user BOOLEAN NULL,
     emailValide_user BOOLEAN NOT NULL
+    NbModification_user INTEGER NOT NULL DEFAULT 0,
+    NbSuppression_user INTEGER NOT NULL DEFAULT 0,
+    NbAjout_user INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE bcp__article(

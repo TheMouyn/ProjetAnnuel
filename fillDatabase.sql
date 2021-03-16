@@ -209,12 +209,12 @@ INSERT INTO bcp__typeetude VALUES
 
 -- Ajout des utilisateurs
 INSERT INTO bcp__user VALUES
-    (NULL, 'ONILLON', 'Maxime', '2000-11-08', 'monillon@outlook.fr', '$2y$12$l30e6HOA8wuLk/9sClI8geekFzJbjWpAJpD2XtRTDXk38aJ.tTZ2u', 'upload/photoUser/photoUser1.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'GUILLET', 'Orlane', '1999-12-06', 'guilletorlane@gmail.com ', '$2y$12$ExRnf/xZAX6G6wSSw8jfjesp619Lz7YE8taw48RhEPXwPGuxziNHO', 'upload/photoUser/photoUser2.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'MICHEL', 'Achil', '2000-03-13', 'michel.achil@orange.fr', '$2y$12$19epuPDuAWSVBKlXUQsQP.gKaCS8CNLXsNJ.dEgEx6EV78hqSM4GW', 'upload/photoUser/photoUser3.jpg', 1, 'DUT', 'upload/justificatif/justificatif3.pdf', 1, 1),
-    (NULL, 'REBOUT', 'Aline', '2000-05-16', 'aline.rebout@outlook.fr', '$2y$12$fUbW8/ZJNttjiJnAlh9Jius.ouj2dUJ61hcZA1Hm3QHI7MkxQFmRi', 'upload/photoUser/photoUser4.jpg', 0, 'DUT', NULL, NULL, 1),
-    (NULL, 'MABILEAU', 'Fabienne', '1980-07-17', 'fabienne.mabileau@domaine.fr', '$2y$12$tlrklEQBi9zYP97USnwfK.Bbw8zh.tvk4CqzgP2w6NcRNj/VWIit.', 'upload/photoUser/photoUser5.jpg', 1, 'Master', 'upload/justificatif/justificatif5.pdf', 1, 1),
-    (NULL, 'FAGOT', 'Sophie', '1970-10-20', 'sophie.fagot@domaine.fr', '$2y$12$i4dMGOY1RrEqzUwj6dFx9.MZme4EK2sxYuflCDBIS9NtBSnbsrWlC', 'upload/photoUser/photoUser6.jpg', 1, 'Master', 'upload/justificatif/justificatif6.pdf', 0, 0);
+    (NULL, 'ONILLON', 'Maxime', '2000-11-08', 'monillon@outlook.fr', '$2y$12$l30e6HOA8wuLk/9sClI8geekFzJbjWpAJpD2XtRTDXk38aJ.tTZ2u', 'upload/photoUser/photoUser1.jpg', 0, 'DUT', NULL, NULL, 1, 0, 0, 0),
+    (NULL, 'GUILLET', 'Orlane', '1999-12-06', 'guilletorlane@gmail.com ', '$2y$12$VUeyfUc0EwPNb0YN.BUrZ.id8FdWkD7ZyBZCZjuvULdc4oQ9lsqqW', 'upload/photoUser/photoUser2.jpg', 0, 'DUT', NULL, NULL, 1, 0, 0, 0),
+    (NULL, 'MICHEL', 'Achil', '2000-03-13', 'michel.achil@orange.fr', '$2y$12$6O3Ix9sdCmJdIrSRm3E3wuQE300t3ii1DrwYxK3/oy8Vrg.Z.5bgS', 'upload/photoUser/photoUser3.jpg', 0, 'DUT', NULL, NULL, 1, 0, 0, 0, 0),
+    (NULL, 'REBOUT', 'Aline', '2000-05-16', 'aline.rebout@outlook.fr ', '$2y$12$McSgP3RObeV2LXYNQVpykem8ANVUFmqAixpy66x1HLekKNjhDHGBi', 'upload/photoUser/photoUser4.jpg', 0, 'DUT', NULL, NULL, 1, 0, 0, 0, 0),
+    (NULL, 'MABILEAU', 'Fabienne', '1980-07-17', 'fabienne.mabileau@domaine.Fr', '$2y$12$tlrklEQBi9zYP97USnwfK.Bbw8zh.tvk4CqzgP2w6NcRNj/VWIit.', 'upload/photoUser/photoUser5.jpg', 1, 'Master', 'upload/justificatif/justificatif5.pdf', 1, 1, 0, 0, 0),
+    (NULL, 'FAGOT', 'Sophie', '1970-10-20', 'sophie.fagot@domaine.fr', '$2y$12$i4dMGOY1RrEqzUwj6dFx9.MZme4EK2sxYuflCDBIS9NtBSnbsrWlC', 'upload/photoUser/photoUser6.jpg', 1, 'Master', 'upload/justificatif/justificatif6.pdf', 0, 0, 0, 0, 0, 0);
 
 
 -- Ajout des bactéries
