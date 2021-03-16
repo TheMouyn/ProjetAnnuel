@@ -26,7 +26,7 @@ require_once '../elements/nav.php';
         <table>
             <?php
             if (!empty($tabResultat)) {
-                $nbResultat = $niveauInf;
+                $nbResultat = 0;
                 foreach ($tabResultat as $ligne) {
                     $nbResultat++;
                     if ($nbResultat > $niveauInf AND $nbResultat <= $niveauInf+10) {
@@ -77,7 +77,7 @@ HTML;
                 $niveauSupp = $niveauInf +10;
             echo "<a href=\"suiteSearch.php?niveau=$niveauSupp\" style=\"float: right\"><img src=\"../style/img/next.svg\" alt=\"Fleche vers droite\" style=\"width: 75px; margin: 20px;\"></a>";
             }
-            if ($niveauInf > 20){
+            if ($niveauInf >= 20){
                 $niveauPred = $niveauInf -10;
                 echo "<a href=\"suiteSearch.php?niveau=$niveauPred\" style=\"float: right\"><img src=\"../style/img/next.svg\" alt=\"Fleche vers droite\" style=\"width: 75px; margin: 20px;  -webkit-transform: scaleX(-1); transform: scaleX(-1);\"></a>";
             }

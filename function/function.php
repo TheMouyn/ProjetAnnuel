@@ -460,3 +460,14 @@ function justificatifNonValide(){
     $query->execute();
     return $query->fetchAll();
 }
+
+function gardeListeMatch($recherche, $elementAConserver){
+    //permet de recherche dans le tableau recherche et de conserver uniquement les element à conserver
+    $temp = [];
+    foreach ($recherche as $ligne){
+        if (in_array($ligne, $elementAConserver)){
+            $temp[] = $ligne;
+        }
+    }
+    return $temp;
+}
