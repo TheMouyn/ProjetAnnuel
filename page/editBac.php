@@ -183,6 +183,8 @@ if (isset($idBac)) {
 
             }
 
+            // plus 1 au nombre de modification des bactérie pour l'utulisateur
+            ajoutNbModif($_SESSION['idUser']);
 
             header('Location:bacIndiv.php?idBac='.$newBacterie['id']);
             die();

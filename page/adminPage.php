@@ -18,13 +18,21 @@ $justif = justificatifNonValide();
 if(isset($_GET['valid'])){
     $justifAValider = $_GET['valid'];
     $bdd = connect();
-    $query = $bdd->prepare('UPDATE bcp__user SET justificatifValide_user = 1 WHERE id_user = :id;');
+    $query = $bdd->prepare('UPDATE bcp__user SET justificatifValide_user = 1, NbModification_user = 0, NbAjout_user = 0, NbSuppression_user = 0 WHERE id_user = :id;');
     $query->execute([
         'id' => $justifAValider
     ]);
     header('Location:adminPage.php');
     die();
 }
+
+// on récupère le nombre de modif, add et del de l'admin dans la bdd
+$bdd = connect();
+$stat = $bdd->prepare('SELECT NbModification_user, NbSuppression_user, NbAjout_user FROM bcp__user WHERE id_user = :idUser;');
+$stat->execute([
+    'idUser' => $_SESSION['idUser']
+]);
+$resultatStat = $stat->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -58,6 +66,12 @@ HTML;
             }
         ?>
         </table>
+    </div>
+
+    <div style="margin: 50px 0;">
+        <p>Nombre de modification : <?= $resultatStat[0]['NbModification_user'] ?></p>
+        <p>Nombre d'ajout : <?= $resultatStat[0]['NbAjout_user'] ?></p>
+        <p>Nombre d'ajout : <?= $resultatStat[0]['NbSuppression_user'] ?></p>
     </div>
 
 

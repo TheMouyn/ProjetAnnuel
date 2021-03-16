@@ -471,3 +471,12 @@ function gardeListeMatch($recherche, $elementAConserver){
     }
     return $temp;
 }
+
+function ajoutNbModif($idUser){
+    // Ajout un au nombre de modification de l'utilisateur
+    $bdd = connect();
+    $query = $bdd->prepare('UPDATE bcp__user SET NbModification_user = NbModification_user+1 WHERE id_user = :idUser;');
+    $query->execute([
+        'idUser' => $idUser
+    ]);
+}

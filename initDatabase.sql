@@ -24,10 +24,10 @@ CREATE TABLE bcp__user(
     nom_typeEtude VARCHAR(255) NULL,
     lienInterneJustificatif_user TEXT NULL,
     justificatifValide_user BOOLEAN NULL,
-    emailValide_user BOOLEAN NOT NULL
-    NbModification_user INTEGER NOT NULL DEFAULT 0,
-    NbSuppression_user INTEGER NOT NULL DEFAULT 0,
-    NbAjout_user INTEGER NOT NULL DEFAULT 0
+    emailValide_user BOOLEAN NOT NULL,
+    NbModification_user INTEGER NULL,
+    NbSuppression_user INTEGER NULL,
+    NbAjout_user INTEGER NULL
 );
 
 CREATE TABLE bcp__article(
