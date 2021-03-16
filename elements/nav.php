@@ -45,10 +45,10 @@ session_start();
               <img src="../style/img/database.svg" alt="">
               <div class="textelien">Gérer les données</div>
           </a>
-          <a href="#" class="button one">
-              <img src="../style/img/setting.svg" alt="">
-              <div class="textelien">Paramètres</div>
-          </a>
+<!--          <a href="#" class="button one">-->
+<!--              <img src="../style/img/setting.svg" alt="">-->
+<!--              <div class="textelien">Paramètres</div>-->
+<!--          </a>-->
           <a href="../page/disconect.php" class="button one">
               <img src="../style/img/logout.svg" alt="">
               <div class="textelien">Déconnexion</div>
