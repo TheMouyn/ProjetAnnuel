@@ -480,3 +480,19 @@ function ajoutNbModif($idUser){
         'idUser' => $idUser
     ]);
 }
+
+function milieux(){
+    // Renvois les id et nom de tous les milieux
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT id_milieu, nature_milieu FROM bcp__milieu');
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function ficheTechnique(){
+    // Renvois les informations de toutes les fiches techniques
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__fichetechnique');
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}

@@ -75,6 +75,27 @@ HTML;
     </div>
 
 
+    <div>
+        <h3>Liste des milieux enregistrés dans la base de données</h3>
+        <ul>
+            <?php
+            foreach (milieux() as $milieu){
+                echo "<li><a href='milieuIndiv.php?{$milieu['id_milieu']}'>{$milieu['nature_milieu']}</a></li>";
+            }
+            ?>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <h3>Liste des fiches techniques enregistrées dans la base de données</h3>
+        <ul>
+            <?php
+            foreach (ficheTechnique() as $fiche){
+                echo "<li><a href='../{$fiche['LienInterneFichier_ficheTechnique']}' target='_blank'>{$fiche['titre_ficheTechnique']}</a></li>";
+            }
+            ?>
+        </ul>
+    </div>
 
 
 
