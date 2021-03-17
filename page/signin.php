@@ -32,8 +32,8 @@ if (isset($prenomUser, $nomUser, $ddnUser, $passwordUser, $passwordConfirmUser, 
    } else {
 
       // redirection si est professionnel après insertion en bdd
-      // TODO: génération du mail pour la vérification (cf mail Dominique GENIET)
 
+      // Le mail est impossible à envoyer, donc affichage pop-up
       // ajout en base de donnée
       $bdd = connect();
       $ajout = $bdd->prepare('INSERT INTO bcp__user(nom_user, prenom_user, ddn_user, email_user, password_user, estProfessionnel_user, nom_typeEtude, emailValide_user) VALUES (:nom, :prenom, :ddn, :email, :mdp, :estPro, :typeEtude, 0);');

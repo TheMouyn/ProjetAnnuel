@@ -54,7 +54,6 @@ if (isset($_GET['recherche'])){
     }
 
 
-    //TODO: prise en compte des page quand nb résultat supérieur à 10
 
 }
 
