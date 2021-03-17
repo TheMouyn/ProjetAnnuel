@@ -125,8 +125,12 @@ session_start();
     </div>
     <div style="clear: both;"></div>
 
+    <?php
+    if (isset($bacterie['photo'])){
+        echo "<img class=\"imgIndiv\" src=\"../{$bacterie['photo']}\" alt=\"Photo microscope de la bactérie\">";
+    }
+    ?>
 
-    <img class="imgIndiv" src="../<?= $bacterie['photo'] ?>" alt="Photo microscope de la bactérie">
 
     <p>Nom genre : <?= $bacterie['genre'] ?></p>
     <p>Nom espèce : <?= $bacterie['espece'] ?></p>
