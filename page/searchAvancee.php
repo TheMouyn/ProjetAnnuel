@@ -151,6 +151,9 @@ if (isset($_GET['genre'])){
     // on stock les informations de la recherche dans la session au cas où il y a plus de 10 résultats
     $_SESSION['recherche'] = $tabResultat;
 
+    if (empty($listeBacterieMatch)){
+        $errorMsg = "Votre recherche est infructeuse";
+    }
 
 
 }
@@ -365,6 +368,13 @@ HTML;
         }
         ?>
     </div>
+
+    <?php
+    // Affiche un message d'erreur si il est défini
+    if (isset($errorMsg)) {
+        echo message($errorMsg, "msg-error");
+    }
+    ?>
 
 
 
