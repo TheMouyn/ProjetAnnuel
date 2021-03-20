@@ -97,6 +97,8 @@ HTML;
         </ul>
     
     </div>
+
+    <br>
 <p>Pour ajouter un article : <a href="ajoutArticle.php">cliquer ici</a> </p>
 
 
