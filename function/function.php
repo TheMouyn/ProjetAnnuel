@@ -504,19 +504,3 @@ function ficheTechnique(){
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
-
-function bacterieIdExiste($id_bacterie){
-    // si l'id de la bactérie existe alors le résulat est null
-    $bdd = connect();
-    $query = $bdd->prepare('SELECT * FROM bcp__bacterie WHERE id_bacterie = :id_bacterie LIMIT 1;');
-    $query->execute([
-        'id_bacterie' => $id_bacterie
-    ]);
-    $resultat = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    if (!empty($resultat[0])){
-        return $resultat;
-    } else {
-        return null;
-    }
-}

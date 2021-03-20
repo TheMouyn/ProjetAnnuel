@@ -19,23 +19,19 @@ $datePublication_article = $_POST["datePublication_article"] ?? null;
 $id_bacterie = $_POST["id_bacterie"] ?? null;
 
 if (isset($titre_article, $auteur_article, $extrait_article, $LienSource_article, $datePublication_article, $id_bacterie)) {
-    //verification que l'id de la bactérie existe bien sinon affichage d'un message d'erreur
-    if (bacterieIdExiste($id_bacterie) == null) {
-        $errorMsg = "Ce numéro de bactérie n'existe pas";
-    } else {
-// ajout en base de donnée
-        $bdd = connect();
-        $ajout = $bdd->prepare('INSERT INTO bcp__article(titre_article, auteur_article, extrait_article, LienSource_article, datePublication_article, id_bacterie) VALUES (:titre, :auteur, :extrait, :LienSource, :datePublication, :id_b)');
-        $ajout->execute([
-            'titre' => $titre_article,
-            'auteur' => $auteur_article,
-            'extrait' => $extrait_article,
-            'LienSource' => $LienSource_article,
-            'datePublication' => $datePublication_article,
-            'id_b' => $id_bacterie
-        ]);
-        $successMsg = "L'article a bien été ajouté.";
-    }
+    // ajout en base de donnée
+    $bdd = connect();
+    $ajout = $bdd->prepare('INSERT INTO bcp__article(titre_article, auteur_article, extrait_article, LienSource_article, datePublication_article, id_bacterie) VALUES (:titre, :auteur, :extrait, :LienSource, :datePublication, :id_b)');
+    $ajout->execute([
+        'titre' => $titre_article,
+        'auteur' => $auteur_article,
+        'extrait' => $extrait_article,
+        'LienSource' => $LienSource_article,
+        'datePublication' => $datePublication_article,
+        'id_b' => $id_bacterie
+    ]);
+    $successMsg = "L'article a bien été ajouté.";
+
 }
 
 session_write_close();
