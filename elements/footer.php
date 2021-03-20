@@ -1,5 +1,5 @@
 <div class="footer">
-   <h3>Pied de page</h3>
+   <p>L3 GBI - Université de Poitiers</p>
 </div>
 
 </div>
