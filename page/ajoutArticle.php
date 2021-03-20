@@ -3,6 +3,13 @@ require_once '../function/function.php';
 require_once '../function/miseEnPage.php';
 session_start();
 
+// on vérifie que l'utilisateur est bien admin
+if ($_SESSION['estAdmin'] == 0) {
+    // redirige vers l'accueil
+    header('Location:accueil.php');
+    die();
+}
+
 //Récupération de informations du formulaire d'ajout d'article
 $titre_article = $_POST["titre_article"] ?? null;
 $auteur_article = $_POST["auteur_article"] ?? null;
