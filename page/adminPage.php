@@ -69,12 +69,22 @@ HTML;
     </div>
 
     <div style="margin: 50px 0;">
+<<<<<<< Updated upstream
         <p>Nombre de modification : <?= $resultatStat[0]['NbModification_user'] ?></p>
         <p>Nombre d'ajout : <?= $resultatStat[0]['NbAjout_user'] ?></p>
         <p>Nombre d'ajout : <?= $resultatStat[0]['NbSuppression_user'] ?></p>
     </div>
 
+=======
+        <p>Nombre de modification de bactérie : <?= $resultatStat[0]['NbModification_user'] ?></p>
+        <p>Nombre d'ajout de bactérie : <?= $resultatStat[0]['NbAjout_user'] ?></p>
+        <p>Nombre d'ajout de bactérie : <?= $resultatStat[0]['NbSuppression_user'] ?></p>
+    </div>
+>>>>>>> Stashed changes
 
+    <div>
+    <p>Pour ajouter un article : <a href="ajoutArticle.php">cliquer ici</a> </p>
+    </div>
 
 
 
