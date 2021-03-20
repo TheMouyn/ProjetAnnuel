@@ -34,6 +34,14 @@ function maladies():array {
     return ($query->fetchAll(PDO::FETCH_COLUMN));
 }
 
+function listeBacterie():array {
+    // renvoi toute la liste toutes les bactéries stockées en bdd
+    $bdd = connect();
+    $query = $bdd->prepare('SELECT * FROM bcp__bacterie');
+    $query->execute();
+    return ($query->fetchAll(PDO::FETCH_ASSOC));
+}
+
 
 function zonesCorps():array {
    // renvoi toute la liste des zone corps stocké en bdd

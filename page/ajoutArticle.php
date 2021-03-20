@@ -106,16 +106,23 @@ require_once '../elements/nav.php';
 
             <tr>
                 <td>
-                    <label for="id_bacterie"> Numéro d'identifiant de la bactérie mentionnée: </label>
+                    <label for="id_bacterie"> Bactérie mentionnée: </label>
                 </td>
                 <td>
-                    <input style="height: 24px; margin: 5px; width: 100%;" type="integer" name="id_bacterie" placeholder="Exemple: 21" required>
+                    <select style="height: 24px; margin: 5px; width: 100%;" name="id_bacterie" id="id_bacterie">
+                        <option value="" selected disabled hidden>Non sélectionné</option>
+                        <?php
+                        foreach (listeBacterie() as $ligne){
+                            echo "<option value='{$ligne['id_bacterie']}'>{$ligne['genre_bacterie']} {$ligne['espece_bacterie']} {$ligne['serovar_bacterie']}</option>";
+                        }
+                        ?>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <button style="display: flex; width: 100%; justify-content: center; align-items: center; margin: 5px;"
-                            type="reset"><img style="height: 20px" src="../style/img/plus.svg" alt="">
+                            type="submit"><img style="height: 20px" src="../style/img/plus.svg" alt="">
                         <div style="padding-left: 10px;">Ajouter l'article</div>
                     </button>
                 </td>
