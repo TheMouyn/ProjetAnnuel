@@ -1,3 +1,4 @@
+-- Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL
 -- bcp pour bactepedia
 
 -- désactivation de la vérification des clées étrangères pour suppression des tables

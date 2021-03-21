@@ -1,3 +1,4 @@
+-- Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL
 -- le but est de remplir la base de donnée avec des données de test
 
 -- réglage de l'encodage

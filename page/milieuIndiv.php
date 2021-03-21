@@ -1,3 +1,4 @@
+<!-- Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL-->
 <?php
 require_once '../function/miseEnPage.php';
 require_once '../function/function.php';

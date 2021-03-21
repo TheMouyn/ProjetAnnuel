@@ -1,3 +1,4 @@
+<!-- Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL-->
 <?php
 // permet de changer le format de la date sotcke en bdd en format français
 function enDate($date):string{

@@ -1,3 +1,4 @@
+<!-- Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL-->
 <?php
 $titreOnglet = "Bactépédia - Accueil";
 $titrePage = "Page d'Accueil - Derniers articles";

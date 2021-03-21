@@ -1,5 +1,7 @@
 # Projet annuel
 Dépôt github du projet annuel L3 GBI Bactépédia.
+Groupe N°032 -  Orlane GUILLET, Maxime ONILLON, Aline REBOUT, Achil MICHEL
+
 
 initDatabase.sql : permet de générer la base de données vide.
 
