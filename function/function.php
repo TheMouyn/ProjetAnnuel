@@ -504,3 +504,61 @@ function ficheTechnique(){
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function suprBac($idBac){
+    // Supprime la bactérie de toutes les tables de la bdd
+    // table pousse
+    $bdd = connect();
+    $suprPousse = $bdd->prepare('DELETE FROM bcp__pousse WHERE id_bacterie = :id');
+    $suprPousse->execute([
+        'id' => $idBac
+    ]);
+
+    // Table resistance
+    $suprResistance = $bdd->prepare('DELETE FROM bcp__resistance WHERE id_bacterie = :id');
+    $suprResistance->execute([
+        'id' => $idBac
+    ]);
+
+    // Table provoque Symptome
+    $suprSymptome = $bdd->prepare('DELETE FROM bcp__provoquesymptome WHERE id_bacterie = :id');
+    $suprSymptome->execute([
+        'id' => $idBac
+    ]);
+
+    // Table provoque maladie
+    $suprMaladie = $bdd->prepare('DELETE FROM bcp__provoquemaladie WHERE id_bacterie = :id');
+    $suprMaladie->execute([
+        'id' => $idBac
+    ]);
+
+    // Table atteint zone corps
+    $suprAtteintZoneCorps = $bdd->prepare('DELETE FROM bcp__atteint WHERE id_bacterie = :id');
+    $suprAtteintZoneCorps->execute([
+        'id' => $idBac
+    ]);
+
+    // Table bactérie à savoir
+    $suprASavoir = $bdd->prepare('DELETE FROM bcp__ASavoir WHERE id_bacterie = :id');
+    $suprASavoir->execute([
+        'id' => $idBac
+    ]);
+
+    // Table favoris
+    $suprFavoris = $bdd->prepare('DELETE FROM bcp__favoris WHERE id_bacterie = :id');
+    $suprFavoris->execute([
+        'id' => $idBac
+    ]);
+
+    // Table article
+    $suprArticle = $bdd->prepare('DELETE FROM bcp__article WHERE id_bacterie = :id');
+    $suprArticle->execute([
+        'id' => $idBac
+    ]);
+
+
+    $suprBac = $bdd->prepare('DELETE FROM bcp__bacterie WHERE id_bacterie = :id');
+    $suprBac->execute([
+        'id' => $idBac
+    ]);
+}

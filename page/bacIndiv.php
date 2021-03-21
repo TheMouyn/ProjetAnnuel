@@ -75,6 +75,22 @@ if (isset($_GET['switchASavoir'], $_SESSION['idUser'])) {
 
 
 }
+
+// suppression de la bactérie en bdd
+if (isset($_GET['idBac'], $_GET['delBac'])){
+    if ($_SESSION['estAdmin'] == 0){
+        header("Location:bacIndiv.php?idBac={$bacterie['id']}");
+        die();
+    } else {
+        if ($_GET['idBac'] == $_GET['delBac']){
+            $delBac = $_GET['delBac'];
+            suprBac($delBac);
+            header('Location:accueil.php');
+            die();
+        }
+    }
+}
+
 session_write_close();
 
 
@@ -119,6 +135,7 @@ session_start();
             if ($_SESSION['estAdmin'] == 1){
                 // affiche un lien crayon vers l'édition de bactérie
                 echo "<a href=\"editBac.php?idBac={$bacterie['id']}\"><img src='../style/img/crayon.svg' alt='logo crayon' title='Edtier la bactérie' style=\"width: 50px; margin: 0px 10px;\"></a>";
+                echo "<a href=\"bacIndiv.php?idBac={$bacterie['id']}&delBac={$bacterie['id']}\"><img src='../style/img/delete.svg' alt='logo crayon' title='Supprimer la bactérie' style=\"height: 55px; margin: 0px 10px;\"></a>";
             }
         }
         ?>
