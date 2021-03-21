@@ -71,7 +71,7 @@ HTML;
     <div style="margin: 50px 0;">
         <p>Nombre de modification : <?= $resultatStat[0]['NbModification_user'] ?></p>
         <p>Nombre d'ajout : <?= $resultatStat[0]['NbAjout_user'] ?></p>
-        <p>Nombre d'ajout : <?= $resultatStat[0]['NbSuppression_user'] ?></p>
+        <p>Nombre de suppression : <?= $resultatStat[0]['NbSuppression_user'] ?></p>
     </div>
 
 

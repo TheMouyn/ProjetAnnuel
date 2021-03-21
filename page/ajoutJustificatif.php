@@ -27,7 +27,7 @@ if (isset($_FILES['fichier'], $mailUser) and ($_FILES['fichier']['error'] == 0))
       } else {
          move_uploaded_file($_FILES["fichier"]["tmp_name"], '../upload/justificatif/' . $nomFichier);
          $successMsg = "Votre justificatif à été enregistré, il sera traité dans les meilleurs délais. Veuillez valider votre compte grâce au mail que vous avez reçu (voir pop-up).";
-          ajoutJustifBDD($mailUser, '/upload/justificatif/' . $nomFichier);
+          ajoutJustifBDD($mailUser, 'upload/justificatif/' . $nomFichier);
           echo openNewTab('mailValideMail.php');
       }
    } else {

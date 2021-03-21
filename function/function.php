@@ -539,7 +539,7 @@ function suprBac($idBac){
     ]);
 
     // Table bactérie à savoir
-    $suprASavoir = $bdd->prepare('DELETE FROM bcp__ASavoir WHERE id_bacterie = :id');
+    $suprASavoir = $bdd->prepare('DELETE FROM bcp__asavoir WHERE id_bacterie = :id');
     $suprASavoir->execute([
         'id' => $idBac
     ]);
